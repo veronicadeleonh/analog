@@ -54,13 +54,13 @@ const PhotoGrid = () => {
         Total slides {images.length}
 
     {openModal &&
-        <div className='bg-slate-600'>
+        <div className='fixed m-0 z-50 bg-[#282c34] flex items-center justify-start w-full h-full'>
             <FontAwesomeIcon icon={faCircleXmark} className='buttonClose' onClick={handleCloseModal}/>
             <FontAwesomeIcon icon={faCircleChevronLeft} className='buttonPrev' onClick={prevSlide}/>
             <FontAwesomeIcon icon={faCircleChevronRight} className='buttonNext' onClick={nextSlide}/>
             
-            <div className='fullScreenImage'>
-                <img src={images[slideNumber]} />
+            <div className='w-[calc(100%-40px)] h-[calc(100%-40px)] flex items-center justify-center'>
+                <img className='max-w-full max-h-full pointer-events-none select-none' src={images[slideNumber]} />
             </div>
 
         </div>
