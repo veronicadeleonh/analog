@@ -44,18 +44,17 @@ import PhotoGrid from './components/PhotoGrid';
 //   }
 // ]
 
+const images = [
+  '/img-landscape.jpg',
+  '/img-portrait.jpg',
+  '/img-landscape.jpg',
+  '/img-portrait.jpg',
+  '/img-portrait.jpg',
+  '/img-landscape.jpg',
+  '/img-landscape.jpg',
+]
+
 function App() {
-
-  const images = [
-    '/img-landscape.jpg',
-    '/img-portrait.jpg',
-    '/img-landscape.jpg',
-    '/img-portrait.jpg',
-    '/img-portrait.jpg',
-    '/img-landscape.jpg',
-    '/img-landscape.jpg',
-  ]
-
 
   return (
     <div>

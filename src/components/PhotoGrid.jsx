@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import Overlays from './Overlays'
 import PhotoModal from './PhotoModal'
+
 
 
 const PhotoGrid = props => {
@@ -23,7 +25,7 @@ const PhotoGrid = props => {
     } 
 
     // previous image
-    const prevSlide = () => {
+    const handlePrevSlide = () => {
         slideNumber === 0 
         ? setSlideNumber(images.length -1) 
         : setSlideNumber(slideNumber - 1)
@@ -42,7 +44,7 @@ const PhotoGrid = props => {
   return (
     <div>
 
-    <div className='columns-1 sm:columns-2 lg:columns-3 py-10 md:pz-20 gap-2'>
+        <div className='columns-1 sm:columns-2 lg:columns-3 ml-3 mr-3 py-10 md:pz-20 gap-2'>
         {images.map((src, index) => (
                 <div 
                     key={index} 
@@ -52,10 +54,12 @@ const PhotoGrid = props => {
                 </div>  
             ))}
             
-    </div>
+        </div>
 
-    {openModal &&
-        <PhotoModal images={images} closeModal={handleCloseModal} prevSlide={prevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />}
+        <Overlays openModal={openModal} images={images} closeModal={handleCloseModal} prevSlide={handlePrevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />
+
+    {/* {openModal 
+    && <PhotoModal images={images} closeModal={handleCloseModal} prevSlide={handlePrevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />}         */}
 
     </div>
   )
