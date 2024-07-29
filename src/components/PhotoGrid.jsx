@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import Overlays from './Overlays'
-import Hero from './Hero'
 
 const images = [
     '/img-landscape.jpg',
@@ -49,8 +48,6 @@ const PhotoGrid = () => {
 
   return (
     <div>
-
-        <Hero />
 
         <div className='columns-1 sm:columns-2 lg:columns-3 xl:columns-4 ml-8 mr-8 py-10 md:pz-20 gap-2'>
         {images.map((src, index) => (
