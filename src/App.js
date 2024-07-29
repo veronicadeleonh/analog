@@ -1,8 +1,11 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero'
 import Footer from './components/Footer'
 import PhotoGrid from './components/PhotoGrid';
+import About from './views/About'
+import GetInTouch from './views/GetInTouch'
+
 
 // const imagesArray = [
 //   {
@@ -44,25 +47,20 @@ import PhotoGrid from './components/PhotoGrid';
 //   }
 // ]
 
-const images = [
-  '/img-landscape.jpg',
-  '/img-portrait.jpg',
-  '/img-landscape.jpg',
-  '/img-portrait.jpg',
-  '/img-portrait.jpg',
-  '/img-landscape.jpg',
-  '/img-landscape.jpg',
-]
+ 
 
 function App() {
 
   return (
-    <div>
+    <>
       <Navbar />
-      <Hero />
-      <PhotoGrid images={images} />
+        <Routes>
+          <Route exact path='/' element={<PhotoGrid />} />
+          <Route exact path='/about' element={<About />} />
+          <Route exact path='/contact' element={<GetInTouch />} />
+        </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

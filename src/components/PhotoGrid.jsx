@@ -1,14 +1,20 @@
 import React from 'react'
 import { useState } from 'react'
 import Overlays from './Overlays'
-import PhotoModal from './PhotoModal'
+import Hero from './Hero'
 
+const images = [
+    '/img-landscape.jpg',
+    '/img-portrait.jpg',
+    '/img-landscape.jpg',
+    '/img-portrait.jpg',
+    '/img-portrait.jpg',
+    '/img-landscape.jpg',
+    '/img-landscape.jpg',
+  ]
 
+const PhotoGrid = () => {
 
-const PhotoGrid = props => {
-
-    const { images } = props
-    
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
 
@@ -44,7 +50,9 @@ const PhotoGrid = props => {
   return (
     <div>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 ml-3 mr-3 py-10 md:pz-20 gap-2'>
+        <Hero />
+
+        <div className='columns-1 sm:columns-2 lg:columns-3 xl:columns-4 ml-8 mr-8 py-10 md:pz-20 gap-2'>
         {images.map((src, index) => (
                 <div 
                     key={index} 
