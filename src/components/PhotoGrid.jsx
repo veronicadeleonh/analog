@@ -49,7 +49,7 @@ const PhotoGrid = () => {
   return (
     <div className='max-w-[1240px] mx-auto'>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 md:pz-20 gap-2'>
+        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 px-4 gap-2'>
         {images.map((src, index) => (
                 <div 
                     key={index} 

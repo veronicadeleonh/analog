@@ -4,9 +4,8 @@ const PhotoData = () => {
   return (
     <div>
 
-        <p className='text-zinc-50'>Mount Roraima, Venezuela</p>
-        <p className='font-mono text-zinc-50'>2010</p>
-        <p className='text-zinc-50'>Caption</p>
+        <p className='text-zinc-50'>Mount Roraima, Venezuela - <span className='font-mono'>2010</span></p>
+        <p className='text-zinc-50 font-semibold'>Caption</p>
 
     </div>
   )
