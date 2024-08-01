@@ -12,11 +12,11 @@ const About = () => {
         <Map
           mapboxAccessToken="pk.eyJ1IjoidmVyb25pY2FkZWxlb25oIiwiYSI6ImNrZjU0ZzM0cDBqYzgyc21kazBwbWlxemcifQ.PD9lxFAUmHtAh5TUogPICw"
           initialViewState={{
-            longitude: -122.4,
-            latitude: 37.8,
-            zoom: 14
+            longitude: 0,
+            latitude: 30,
+            zoom: 0.4
           }}
-          style={{width: '100%', height: '100%'}}
+          style={{width: '100%', height: '420px'}}
           mapStyle="mapbox://styles/mapbox/streets-v9"
          />
         </div>
