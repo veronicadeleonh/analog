@@ -9,3 +9,7 @@
 body {
   background-color: #000300;
 }
+
+.mapboxgl-control-container, .mapboxgl-children, mapboxgl-children {
+  display:none
+}
