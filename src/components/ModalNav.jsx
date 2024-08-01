@@ -11,8 +11,8 @@ const ModalNav = props => {
 
   return (
     <div className='flex row gap-1 text-xl text-zinc-500'>
-        <FontAwesomeIcon icon={faCircleChevronLeft} className='buttonPrev hover:text-zinc-100 focus:text-zinc-50' onClick={prevSlide}/>
-        <FontAwesomeIcon icon={faCircleChevronRight} className='buttonNext hover:text-zinc-100 focus:text-zinc-50' onClick={nextSlide}/>
+        <FontAwesomeIcon icon={faCircleChevronLeft} className='buttonPrev hover:text-zinc-100 focus:text-zinc-50 cursor-pointer' onClick={prevSlide}/>
+        <FontAwesomeIcon icon={faCircleChevronRight} className='buttonNext hover:text-zinc-100 focus:text-zinc-50 cursor-pointer' onClick={nextSlide}/>
     </div>
   )
 }

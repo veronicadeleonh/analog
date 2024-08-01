@@ -55,7 +55,7 @@ const PhotoGrid = () => {
                     key={index} 
                     className='mb-2 break-inside-avoid'
                     onClick={() => handleOpenModal(index)}>
-                  <img src={src} className='w-full object-cover rounded-sm' />
+                  <img src={src} className='w-full object-cover rounded-sm cursor-pointer' />
                 </div>  
             ))}
             
