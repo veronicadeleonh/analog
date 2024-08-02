@@ -5,7 +5,8 @@ import Footer from './components/Footer'
 import About from './views/About'
 import GetInTouch from './views/GetInTouch'
 import Home from './views/Home';
- 
+
+const handleContainerSmall = "max-w-[800px] mx-auto mt-6 px-4"
 
 function App() {
 

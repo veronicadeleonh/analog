@@ -7,14 +7,16 @@ const Navbar = () => {
    const normalLink = 'text-zinc-500 transition duration-100 ease-out hover:ease-in hover:text-zinc-50'
 
   return (
-    <div className='md:flex justify-between items-center h-24 max-w-[1240px] mx-auto p-4 text-zinc-50 text-xl font-light'>
+
+   <div className="max-w-[1240px] mx-auto p-4">
+    <div className='md:flex justify-between items-center h-24 text-zinc-50 text-xl font-light'>
         <Link to="/" >
-        <h1 className='w-full font-semibold'>Verónica De León Hernández
+        <h1 className='w-full font-semibold pb-6 md:pb-0'>Verónica De León Hernández
             <span className='text-zinc-500 font-light'> analog</span>
         </h1>
         </Link>
         <ul className='flex text-lg'>
-           <li className='whitespace-nowrap pl-0 mr-4'>
+           <li className='whitespace-nowrap pl-0 mr-6'>
               <NavLink 
                   to="/about"
                   className={({ isActive }) =>
@@ -27,9 +29,9 @@ const Navbar = () => {
                   className={({ isActive }) =>
                      isActive ? activeLink : normalLink
                    }>Get in touch</NavLink>
-                  
            </li>
         </ul>
+      </div>
     </div>
   )
 }
