@@ -1,9 +1,9 @@
 import React from 'react'
 import Map from 'react-map-gl';
-
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import LinkToUXUI from '../components/LinkToUXUI';
+import CamerasIUse from '../components/CamerasIUse';
 
 const About = () => {
   return (
@@ -23,7 +23,10 @@ const About = () => {
           style={{width: '100%', height: '420px'}}
           mapStyle="mapbox://styles/mapbox/streets-v9"
          />
+         <p className='text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
         </div>
+
+        <CamerasIUse />
 
         <LinkToUXUI />
 
