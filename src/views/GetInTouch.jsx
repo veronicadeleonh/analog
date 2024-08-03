@@ -1,9 +1,10 @@
 import React from 'react'
 
-const GetInTouch = () => {
+const GetInTouch = ({containerSmall}) => {
+
   return (
 
-    <div className='max-w-[800px] mx-auto mt-6 px-4'>
+    <div className={containerSmall}>
       <div className='font-light text-zinc-100'>
 
             <div className='pb-8'>

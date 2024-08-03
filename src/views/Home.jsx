@@ -2,12 +2,12 @@ import React from 'react'
 import Hero from '../components/Hero'
 import PhotoGrid from '../components/PhotoGrid'
 
-const Home = () => {
+const Home = ({containerSmall, containerBig}) => {
 
   return (
     <div>
-        <Hero />
-        <PhotoGrid />
+        <Hero containerSmall={containerSmall}/>
+        <PhotoGrid containerBig={containerBig} />
     </div>
   )
 }

@@ -5,10 +5,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import LinkToUXUI from '../components/LinkToUXUI';
 import CamerasIUse from '../components/CamerasIUse';
 
-const About = () => {
+const About = ({containerSmall}) => {
 
   return (
-    <div className="max-w-[800px] mx-auto mt-6 px-4">
+    <div className={containerSmall}>
         <div className='pb-10 font-light text-xl text-zinc-100'>
         I'm <span className='font-bold'>Verónica</span>, an <span className='font-bold'>analog photography enthusiast</span> and <span className='font-bold'>female solo traveler</span> based in Berlin. Here are some of snaps from my backpacking adventures ✌🏽<div className=""></div>
         And  more more more more more more more more more more more more more more</div>

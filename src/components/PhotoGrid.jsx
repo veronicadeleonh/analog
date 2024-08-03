@@ -12,7 +12,7 @@ const images = [
     '/img-landscape.jpg',
   ]
 
-const PhotoGrid = () => {
+const PhotoGrid = ({containerBig}) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -47,7 +47,7 @@ const PhotoGrid = () => {
     console.log(images)
 
   return (
-    <div className="max-w-[1240px] mx-auto p-4">
+    <div className={containerBig}>
 
         <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 px-4 gap-2'>
         {images.map((src, index) => (

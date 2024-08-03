@@ -7,16 +7,17 @@ import GetInTouch from './views/GetInTouch'
 import Home from './views/Home';
 
 const handleContainerSmall = "max-w-[800px] mx-auto mt-6 px-4"
+const handleContainerBig = "max-w-[1240px] mx-auto p-4"
 
 function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar containerBig={handleContainerBig} />
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/about' element={<About />} />
-          <Route exact path='/contact' element={<GetInTouch />} />
+          <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} />} />
+          <Route exact path='/about' element={<About containerSmall={handleContainerSmall} />} />
+          <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
         </Routes>
       <Footer />
     </>
