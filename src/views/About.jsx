@@ -10,8 +10,11 @@ const About = ({containerSmall}) => {
   return (
     <div className={containerSmall}>
         <div className='pb-10 font-light text-xl text-zinc-100'>
-        I'm <span className='font-bold'>Verónica</span>, an <span className='font-bold'>analog photography enthusiast</span> and <span className='font-bold'>female solo traveler</span> based in Berlin. Here are some of snaps from my backpacking adventures ✌🏽<div className=""></div>
-        And  more more more more more more more more more more more more more more</div>
+          <p className='pb-4'>I'm <span className='font-bold'>Verónica</span>, an <span className='font-bold'>analog photography enthusiast</span> and 
+          <span className='font-bold'>female solo traveler</span> based in Berlin. Here are some of snaps from my backpacking adventures ✌🏽.</p>
+
+          <p>When I am not travelling or planning trips around the world, I like to design and build interfaces.</p>
+        </div>
 
         <div className='text-zinc-100 '>
         <Map
@@ -32,6 +35,7 @@ const About = ({containerSmall}) => {
         <LinkToUXUI />
 
     </div>
+
   )
 }
 

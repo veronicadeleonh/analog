@@ -6,22 +6,29 @@ import {
 import PhotoData from './PhotoData'
 import ModalNav from './ModalNav'
 
-const PhotoModal = ({ images, closeModal, nextSlide, prevSlide, slideNumber }) => {
+const PhotoModal = ({ images, closeModal, nextSlide, prevSlide, slideNumber, containerSmall, containerBig }) => {
 
   return (
 
-        <div className='fixed top-0 left-0 z-10 w-screen h-screen p-8 bg-[#020202]'>
+        <div className='fixed top-[50%] left-[50%] w-screen h-screen translate-x-[-50%] translate-y-[-50%]  p-8 z-10 rounded- bg-[#000300ec]'>
 
             <FontAwesomeIcon icon={faCircleXmark} className='text-zinc-500 hover:text-zinc-50 absolute top-6 right-6 cursor-pointer' onClick={closeModal}/>
-   
-            <div className='w-[calc(100%-40px)] h-[calc(100%-40px)] pt-6 pb-6 flex items-center justify-center'>
+
+            <div className='h-[90%]'>
+                <div className='h-[calc(100%-40px)] pt-6 flex items-center justify-center'>
                     <img className='max-w-full max-h-full pointer-events-none select-none' src={images[slideNumber]} />
+                </div>
             </div>
 
-            <div className='max-w-[800px] mx-auto font-light flex justify-between'>
-                <PhotoData />
-                <ModalNav nextSlide={nextSlide} prevSlide={prevSlide} />
+
+            <div className={containerSmall}>
+                <div className='font-light flex justify-between'>
+                    <PhotoData />
+                    <ModalNav nextSlide={nextSlide} prevSlide={prevSlide} />
+                </div>
+
             </div>
+            
 
         </div>
 

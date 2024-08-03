@@ -7,7 +7,7 @@ const Home = ({containerSmall, containerBig}) => {
   return (
     <div>
         <Hero containerSmall={containerSmall}/>
-        <PhotoGrid containerBig={containerBig} />
+        <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} />
     </div>
   )
 }

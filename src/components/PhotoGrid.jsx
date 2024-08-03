@@ -12,7 +12,7 @@ const images = [
     '/img-landscape.jpg',
   ]
 
-const PhotoGrid = ({containerBig}) => {
+const PhotoGrid = ({containerSmall, containerBig}) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -49,7 +49,7 @@ const PhotoGrid = ({containerBig}) => {
   return (
     <div className={containerBig}>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 px-4 gap-2'>
+        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 gap-2'>
         {images.map((src, index) => (
                 <div 
                     key={index} 
@@ -61,7 +61,15 @@ const PhotoGrid = ({containerBig}) => {
             
         </div>
 
-        <Overlays openModal={openModal} images={images} closeModal={handleCloseModal} prevSlide={handlePrevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />
+        <Overlays 
+          openModal={openModal} 
+          images={images} 
+          closeModal={handleCloseModal} 
+          prevSlide={handlePrevSlide} 
+          nextSlide={handleNextSlide} 
+          slideNumber={slideNumber} 
+          containerSmall={containerSmall} 
+          containerBig={containerBig} />
 
     {/* {openModal 
     && <PhotoModal images={images} closeModal={handleCloseModal} prevSlide={handlePrevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />}         */}
