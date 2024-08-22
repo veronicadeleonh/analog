@@ -12,10 +12,10 @@ const LinkToUXUI = () => {
           <Link 
             to="https://veronicadeleonh.github.io" 
             target="_blank"
-            className='bg-zinc-50 text-stone-700 font-normal rounded-sm py-2 px-4 text-nowrap flex gap-2'
+            className='group bg-zinc-50 text-stone-700 font-normal underline underline-offset-2 rounded-sm py-2 px-4 text-nowrap flex gap-2 transition-all'
             >
             Let's go! 
-            <img src='/icons/arrow-right.svg' className='transition-all duration-150 hover:translate-x-[4px]'/>
+            <img src='/icons/arrow-right.svg' className='group-hover:translate-x-[4px] duration-150'/>
             </Link>
           
     </div>
