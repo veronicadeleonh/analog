@@ -6,7 +6,7 @@ const mountElement = document.getElementById("overlays")
 
 const Overlays = props => {
 
-const { images, openModal, closeModal, prevSlide, nextSlide, slideNumber, containerSmall, containerBig } = props
+const { images, openModal, closeModal, prevSlide, nextSlide, slideNumber, containerSmall, containerBig, photos } = props
 
   return (
     createPortal(
@@ -19,6 +19,7 @@ const { images, openModal, closeModal, prevSlide, nextSlide, slideNumber, contai
               slideNumber={slideNumber}
               containerSmall={containerSmall}
               containerBig={containerBig}
+              photos={photos}
                />}</>, mountElement)
   )
 }

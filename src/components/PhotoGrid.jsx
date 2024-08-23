@@ -1,18 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Overlays from './Overlays'
+import {v4 as uuidv4} from 'uuid'
 
-const images = [
-    '/img-landscape.jpg',
-    '/img-portrait.jpg',
-    '/img-landscape.jpg',
-    '/img-portrait.jpg',
-    '/img-portrait.jpg',
-    '/img-landscape.jpg',
-    '/img-landscape.jpg',
-  ]
-
-const PhotoGrid = ({containerSmall, containerBig}) => {
+const PhotoGrid = ({containerSmall, containerBig, photos }) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -32,30 +22,35 @@ const PhotoGrid = ({containerSmall, containerBig}) => {
     // previous image
     const handlePrevSlide = () => {
         slideNumber === 0 
-        ? setSlideNumber(images.length -1) 
+        ? setSlideNumber(photos.length -1) 
         : setSlideNumber(slideNumber - 1)
     }
 
     // next image
     const handleNextSlide = () => {
-        slideNumber + 1 === images.length
+        slideNumber + 1 === photos.length
         ? setSlideNumber(0)
         : setSlideNumber(slideNumber + 1)
     }
 
-
-    console.log(images)
+    // photos.forEach(photo => console.log(photo.image.fields.file.url))
+    console.log(photos[2].caption)
 
   return (
+    
     <div className={containerBig}>
 
         <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 gap-2'>
-        {images.map((src, index) => (
+        {photos.map((photo, index) => (
                 <div 
-                    key={index} 
+                    key={uuidv4()} 
                     className='mb-2 break-inside-avoid'
                     onClick={() => handleOpenModal(index)}>
-                  <img src={src} className='w-full object-cover rounded-sm cursor-pointer' />
+                    
+                  <img 
+                    src={photo.image.fields.file.url} 
+                    className='w-full object-cover rounded-sm cursor-pointer' 
+                    />
                 </div>  
             ))}
             
@@ -63,16 +58,13 @@ const PhotoGrid = ({containerSmall, containerBig}) => {
 
         <Overlays 
           openModal={openModal} 
-          images={images} 
+          photos={photos} 
           closeModal={handleCloseModal} 
           prevSlide={handlePrevSlide} 
           nextSlide={handleNextSlide} 
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig} />
-
-    {/* {openModal 
-    && <PhotoModal images={images} closeModal={handleCloseModal} prevSlide={handlePrevSlide} nextSlide={handleNextSlide} slideNumber={slideNumber} />}         */}
 
     </div>
   )
