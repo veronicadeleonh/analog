@@ -8,7 +8,7 @@ const PhotoModal = props => {
 
     return (
 
-        <div className='fixed top-[50%] left-[50%] w-screen h-screen translate-x-[-50%] translate-y-[-50%]  p-8 z-10 rounded- bg-[#000300ec]'>
+        <div className='fixed top-[50%] left-[50%] w-screen h-screen translate-x-[-50%] translate-y-[-50%] p-8 z-10 rounded- bg-[#000300ec]'>
 
             <div className='text-zinc-500 hover:text-zinc-50 absolute top-6 right-6 cursor-pointer w-8 h-8' onClick={closeModal}>
                 <img className="w-8 h-8" src="icons/close.svg" />

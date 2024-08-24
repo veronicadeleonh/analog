@@ -1,7 +1,13 @@
 import { createClient } from "contentful";
 
+
 const useContentful = () => {
 
+    const client = createClient ({
+        space: "kuqpmtu87g1u",
+        accessToken: "GGCdRHVxIa-P9DxkdQOrippAtle4_qlZXd8xsiyElnw",
+        host: "cdn.contentful.com"
+})
 
 const getPhotos = async () => {
     try {

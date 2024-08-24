@@ -1,9 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
-    faCircleChevronLeft, 
-    faCircleChevronRight, 
-} from '@fortawesome/free-solid-svg-icons'
+
 
 const ModalNav = props => {
 

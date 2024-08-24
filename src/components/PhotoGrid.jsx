@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Overlays from './Overlays'
-import {v4 as uuidv4} from 'uuid'
+
 
 const PhotoGrid = ({containerSmall, containerBig, photos }) => {
 
@@ -33,17 +33,14 @@ const PhotoGrid = ({containerSmall, containerBig, photos }) => {
         : setSlideNumber(slideNumber + 1)
     }
 
-    // photos.forEach(photo => console.log(photo.image.fields.file.url))
-    console.log(photos[2].caption)
 
   return (
-    
     <div className={containerBig}>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 py-10 gap-2'>
-        {photos.map((photo, index) => (
+        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-10 gap-2'>
+            {photos.map((photo, index) => (
                 <div 
-                    key={uuidv4()} 
+                    key={index} 
                     className='mb-2 break-inside-avoid'
                     onClick={() => handleOpenModal(index)}>
                     
@@ -51,7 +48,7 @@ const PhotoGrid = ({containerSmall, containerBig, photos }) => {
                     src={photo.image.fields.file.url} 
                     className='w-full object-cover rounded-sm cursor-pointer' 
                     />
-                </div>  
+                </div>   
             ))}
             
         </div>
@@ -65,6 +62,7 @@ const PhotoGrid = ({containerSmall, containerBig, photos }) => {
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig} />
+
 
     </div>
   )
