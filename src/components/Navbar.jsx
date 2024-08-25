@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 const Navbar = ({containerBig}) => {
 
    const activeLink = 'text-zinc-50'
-   const normalLink = 'text-zinc-500 transition duration-100 ease-out hover:ease-in hover:text-zinc-50'
+   const normalLink = 'text-zinc-500 transition duration-150 ease-out hover:ease-in hover:text-zinc-50'
 
   return (
 
