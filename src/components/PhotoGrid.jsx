@@ -41,7 +41,7 @@ const PhotoGrid = ({containerSmall, containerBig, photos }) => {
             {photos.map((photo, index) => (
                 <div 
                     key={index} 
-                    className='mb-2 break-inside-avoid'
+                    className='mb-2 break-inside-avoid transition-all duration-300 hover:translate-y-[-4px]'
                     onClick={() => handleOpenModal(index)}>
                     
                   <img 
