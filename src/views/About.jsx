@@ -1,11 +1,13 @@
 import React from 'react'
-import Map from 'react-map-gl';
+import Map, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import LinkToUXUI from '../components/LinkToUXUI';
 import CamerasIUse from '../components/CamerasIUse';
 
-const About = ({containerSmall}) => {
+const About = ({ containerSmall, photos }) => {
+
+ // console.log(photos[3].coordinates.lon)
 
   return (
     <div className={containerSmall}>
@@ -26,11 +28,35 @@ const About = ({containerSmall}) => {
               }}
               style={{width: '100%', height: '420px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"
-            />
+            >
+
+                  {/* {photos.map((photo) => {
+                      
+                    <Marker 
+                      key={photo.image.sys.id}
+                      longitude={photo.coordinates.lon}
+                      latitude={photo.coordinates.lat}
+                      anchor="bottom"
+                      >
+                      <img src="./pin.png" />
+                    </Marker>
+                    console.log(photos[2].coordinates.lon, 'test')
+                  })}   */}
+
+              <Marker longitude={-100} latitude={40} anchor="bottom" >
+                <img src="./pin.png" />
+               </Marker>
+
+              {/* <Marker longitude={photos[0].coordinates.lon} latitude={photos[0].coordinates.lat} anchor="bottom" >
+                <img src="./pin.png" />
+               </Marker> */}
+
+            </Map>
+
          <p className='text-zinc-300 text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
         </div>
 
-        <CamerasIUse />
+        <CamerasIUse containerSmall={containerSmall} />
         <LinkToUXUI />
 
     </div>

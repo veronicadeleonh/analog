@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CamerasIUse = () => {
+const CamerasIUse = ({ containterSmall }) => {
   return (
-    <div className='max-w-[800px] mt-6 mx-auto'>
+    <div className={containterSmall}>
         <h2 className='text-2xl font-semibold text-zinc-100'>Cameras I use</h2>
 
         Canonet Ql III

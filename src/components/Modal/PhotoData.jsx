@@ -2,6 +2,8 @@ import React from 'react'
 
 const PhotoData = ({ photos, slideNumber }) => {
 
+  console.log(photos[slideNumber].coordinates.lon)
+
   return (
     <div>
         <p className='text-zinc-50 font-semibold'>{photos[slideNumber].caption}</p>
