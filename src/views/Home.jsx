@@ -1,20 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Hero from '../components/Hero'
 import PhotoGrid from '../components/PhotoGrid'
 import Filters from '../components/Filters'
 
 const Home = ({ containerSmall, containerBig, photos }) => {
 
+  const [selectedFilter, setSelectedFilter] = useState('All')
   const [filteredItems, setFilteredItems] = useState(photos)
+
   let filters = [...new Set(photos.map(photo => photo.country))]
+
+  // console.log(filteredItems, 'filtered')
+
+  const handleSelectedFilter = (e) => setSelectedFilter(e.target.value)
 
   const handleFilterButtonClick = (selectedCategory) => {
     const newItems = photos.filter((el) => el.country === selectedCategory)
     setFilteredItems(newItems)
   }
 
-
-  console.log(filteredItems, 'test')
+  useEffect(() => {
+    setFilteredItems(filters);
+  }, filters);
 
   return (
     <div>
