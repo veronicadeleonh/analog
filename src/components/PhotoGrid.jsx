@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Overlays from './Overlays'
 
 
-const PhotoGrid = ({containerSmall, containerBig, photos, filteredItems }) => {
+const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -22,23 +22,23 @@ const PhotoGrid = ({containerSmall, containerBig, photos, filteredItems }) => {
     // previous image
     const handlePrevSlide = () => {
         slideNumber === 0 
-        ? setSlideNumber(photos.length -1) 
+        ? setSlideNumber(filteredItems.length -1) 
         : setSlideNumber(slideNumber - 1)
     }
 
     // next image
     const handleNextSlide = () => {
-        slideNumber + 1 === photos.length
+        slideNumber + 1 === filteredItems.length
         ? setSlideNumber(0)
         : setSlideNumber(slideNumber + 1)
     }
 
-    console.log(filteredItems, 'photogrid')
+    // console.log(filteredItems, 'photogrid')
 
   return (
     <div className={containerBig}>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-6 gap-2'>
+        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-0 gap-2'>
             {filteredItems.map((photo, index) => (
                 <div 
                     key={photo.image.sys.id} 
