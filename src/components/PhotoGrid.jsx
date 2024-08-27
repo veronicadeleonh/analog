@@ -33,12 +33,13 @@ const PhotoGrid = ({containerSmall, containerBig, photos, filteredItems }) => {
         : setSlideNumber(slideNumber + 1)
     }
 
+    console.log(filteredItems, 'photogrid')
 
   return (
     <div className={containerBig}>
 
-        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-10 gap-2'>
-            {photos.map((photo, index) => (
+        <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-6 gap-2'>
+            {filteredItems.map((photo, index) => (
                 <div 
                     key={photo.image.sys.id} 
                     className='mb-2 break-inside-avoid transition-all duration-300 hover:translate-y-[-4px]'
