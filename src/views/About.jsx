@@ -7,8 +7,6 @@ import CamerasIUse from '../components/CamerasIUse';
 
 const About = ({ containerSmall, photos }) => {
 
- // console.log(photos[3].coordinates.lon)
-
   return (
     <div className={containerSmall}>
         <div className='pb-10 font-light text-xl text-zinc-100'>
@@ -30,18 +28,18 @@ const About = ({ containerSmall, photos }) => {
               mapStyle="mapbox://styles/mapbox/streets-v9"
             >
 
-                  {/* {photos.map((photo) => {
+                  {photos.map((pin, key) => {
                       
                     <Marker 
-                      key={photo.image.sys.id}
-                      longitude={photo.coordinates.lon}
-                      latitude={photo.coordinates.lat}
+                      key={key}
+                      longitude={pin.coordinates.lon}
+                      latitude={pin.coordinates.lat}
                       anchor="bottom"
                       >
                       <img src="./pin.png" />
                     </Marker>
                     console.log(photos[2].coordinates.lon, 'test')
-                  })}   */}
+                  })}  
 
               <Marker longitude={-100} latitude={40} anchor="bottom" >
                 <img src="./pin.png" />
