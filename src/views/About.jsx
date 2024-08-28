@@ -7,7 +7,8 @@ import CamerasIUse from '../components/CamerasIUse';
 
 const About = ({ containerSmall, photos }) => {
 
-  console.log(photos[2].coordinates.lat, 'about')
+//  if (photos.length > 3 ) console.log(photos[2], 'about')
+console.log(photos)
 
   return (
     <div className={containerSmall}>
@@ -19,7 +20,10 @@ const About = ({ containerSmall, photos }) => {
         </div>
 
         <div>
-            <Map
+
+          { photos.length > 0 ? 
+          
+          (<Map
               mapboxAccessToken="pk.eyJ1IjoidmVyb25pY2FkZWxlb25oIiwiYSI6ImNrZjU0ZzM0cDBqYzgyc21kazBwbWlxemcifQ.PD9lxFAUmHtAh5TUogPICw"
               initialViewState={{
                 longitude: 0,
@@ -31,26 +35,19 @@ const About = ({ containerSmall, photos }) => {
             >
 
                   {photos.map((pin, key) => { 
-                      <Marker 
+                      <Marker
                         key={key}
-                        longitude={pin.coordinates.lon}
-                        latitude={pin.coordinates.lat}
+                        longitude={-100}
+                        latitude={40}
                         anchor="bottom"
                         >
-                        <img src="./pin.png" />
+                        PIN
                       </Marker>
-                      console.log(photos[2].coordinates.lat, 'latitud')
-                  })}  
+                  })}
+            </Map>) : null }
 
-              <Marker longitude={-100} latitude={40} anchor="bottom" >
-                <img src="./pin.png" />
-               </Marker>
-
-              {/* <Marker longitude={photos[0].coordinates.lon} latitude={photos[0].coordinates.lat} anchor="bottom" >
-                <img src="./pin.png" />
-               </Marker> */}
-
-            </Map>
+             
+            
 
          <p className='text-zinc-300 text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
         </div>

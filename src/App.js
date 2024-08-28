@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     getPhotos().then((response) => setPhotos(response))
-  })
+  }, [])
 
   return (
     <>

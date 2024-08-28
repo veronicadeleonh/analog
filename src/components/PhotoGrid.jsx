@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Overlays from './Overlays'
 
-
 const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
 
     const [openModal, setOpenModal] = useState(false)
@@ -56,7 +55,7 @@ const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
 
         <Overlays 
           openModal={openModal} 
-          photos={photos} 
+          filteredItems={filteredItems} 
           closeModal={handleCloseModal} 
           prevSlide={handlePrevSlide} 
           nextSlide={handleNextSlide} 

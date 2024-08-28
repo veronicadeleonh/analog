@@ -5,23 +5,18 @@ import Filters from '../components/Filters'
 
 const Home = ({ containerSmall, containerBig, photos }) => {
 
-  const [selectedFilter, setSelectedFilter] = useState('All')
- // const [filteredItems, setFilteredItems] = useState(photos)
+  let randomPhotos = photos.sort(() => 0.5 - Math.random());
+  // console.log(randomPhotos, 'random')
 
-  let filters = ["All", ...new Set(photos.map(photo => photo.city))]
+  const [selectedFilter, setSelectedFilter] = useState('All')
+
+  let filters = ["All", ...new Set(randomPhotos.map(photo => photo.city))]
 
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
 
-  // const handleFilterButtonClick = () => {
-  //   const newItems = photos.filter((el) => el.city === selectedFilter)
-  //   setFilteredItems(newItems)
-  // }
+  const filteredItems = selectedFilter === 'All'? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
 
-  const filteredItems = selectedFilter === 'All'? photos : photos.filter((el) => el.city === selectedFilter)
 
-  // useEffect(() => {
-  //   setFilteredItems(filters);
-  // }, filters);
 
   return (
     <div>
