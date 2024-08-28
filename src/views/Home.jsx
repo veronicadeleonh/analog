@@ -6,27 +6,27 @@ import Filters from '../components/Filters'
 const Home = ({ containerSmall, containerBig, photos }) => {
 
   const [selectedFilter, setSelectedFilter] = useState('All')
-  const [filteredItems, setFilteredItems] = useState(photos)
+ // const [filteredItems, setFilteredItems] = useState(photos)
 
-  let filters = [...new Set(photos.map(photo => photo.country))]
+  let filters = ["All", ...new Set(photos.map(photo => photo.city))]
 
-  // console.log(filteredItems, 'filtered')
+  const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
 
-  const handleSelectedFilter = (e) => setSelectedFilter(e.target.value)
+  // const handleFilterButtonClick = () => {
+  //   const newItems = photos.filter((el) => el.city === selectedFilter)
+  //   setFilteredItems(newItems)
+  // }
 
-  const handleFilterButtonClick = (selectedCategory) => {
-    const newItems = photos.filter((el) => el.country === selectedCategory)
-    setFilteredItems(newItems)
-  }
+  const filteredItems = selectedFilter === 'All'? photos : photos.filter((el) => el.city === selectedFilter)
 
-  useEffect(() => {
-    setFilteredItems(filters);
-  }, filters);
+  // useEffect(() => {
+  //   setFilteredItems(filters);
+  // }, filters);
 
   return (
     <div>
         <Hero containerSmall={containerSmall} />
-        <Filters containerBig={containerBig} filters={filters} filterButtonClick={handleFilterButtonClick} setFilteredItems={setFilteredItems} photos={photos} />
+        <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
         <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} />
     </div>
   )

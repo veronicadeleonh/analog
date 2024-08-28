@@ -7,6 +7,8 @@ import CamerasIUse from '../components/CamerasIUse';
 
 const About = ({ containerSmall, photos }) => {
 
+  console.log(photos[2].coordinates.lat, 'about')
+
   return (
     <div className={containerSmall}>
         <div className='pb-10 font-light text-xl text-zinc-100'>
@@ -16,7 +18,7 @@ const About = ({ containerSmall, photos }) => {
           <p>When I am not travelling or planning trips around the world, I like to design and build interfaces.</p>
         </div>
 
-        <div className='text-zinc-100'>
+        <div>
             <Map
               mapboxAccessToken="pk.eyJ1IjoidmVyb25pY2FkZWxlb25oIiwiYSI6ImNrZjU0ZzM0cDBqYzgyc21kazBwbWlxemcifQ.PD9lxFAUmHtAh5TUogPICw"
               initialViewState={{
@@ -28,17 +30,16 @@ const About = ({ containerSmall, photos }) => {
               mapStyle="mapbox://styles/mapbox/streets-v9"
             >
 
-                  {photos.map((pin, key) => {
-                      
-                    <Marker 
-                      key={key}
-                      longitude={pin.coordinates.lon}
-                      latitude={pin.coordinates.lat}
-                      anchor="bottom"
-                      >
-                      <img src="./pin.png" />
-                    </Marker>
-                    console.log(photos[2].coordinates.lon, 'test')
+                  {photos.map((pin, key) => { 
+                      <Marker 
+                        key={key}
+                        longitude={pin.coordinates.lon}
+                        latitude={pin.coordinates.lat}
+                        anchor="bottom"
+                        >
+                        <img src="./pin.png" />
+                      </Marker>
+                      console.log(photos[2].coordinates.lat, 'latitud')
                   })}  
 
               <Marker longitude={-100} latitude={40} anchor="bottom" >
