@@ -34,6 +34,8 @@ const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
 
     // console.log(filteredItems, 'photogrid')
 
+   // const randomPhotos = filteredItems.sort(() => 0.5 - Math.random())
+
   return (
     <div className={containerBig}>
 
@@ -47,6 +49,7 @@ const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
                   <img 
                     src={photo.image.fields.file.url} 
                     className='w-full object-cover rounded-sm cursor-pointer' 
+                    alt={photo.caption}
                     />
                 </div>   
             ))}
