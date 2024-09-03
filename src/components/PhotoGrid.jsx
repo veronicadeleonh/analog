@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Overlays from './Overlays'
 
-const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
+const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -32,9 +32,9 @@ const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
         : setSlideNumber(slideNumber + 1)
     }
 
-    // console.log(filteredItems, 'photogrid')
+    const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
-   // const randomPhotos = filteredItems.sort(() => 0.5 - Math.random())
+    console.log(handleRamdonSlide, 'random slide')
 
   return (
     <div className={containerBig}>
@@ -61,10 +61,12 @@ const PhotoGrid = ({ containerSmall, containerBig, photos, filteredItems }) => {
           filteredItems={filteredItems} 
           closeModal={handleCloseModal} 
           prevSlide={handlePrevSlide} 
-          nextSlide={handleNextSlide} 
+          nextSlide={handleNextSlide}
+          randomSlide={handleRamdonSlide} 
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
-          containerBig={containerBig} />
+          containerBig={containerBig}
+          />
 
 
     </div>
