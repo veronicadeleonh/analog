@@ -34,7 +34,6 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
 
     const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
-    console.log(handleRamdonSlide, 'random slide')
 
   return (
     <div className={containerBig}>

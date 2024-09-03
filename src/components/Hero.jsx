@@ -7,7 +7,8 @@ const Hero = ({containerSmall}) => {
 
     <div className={containerSmall}>
         <div className='mt-14 md:mt-6 font-light text-2xl text-zinc-100 pb-12'>
-        I'm <span className='font-semibold'>Verónica</span>, an <span className='font-semibold'>analog photography enthusiast</span> and <span className='font-semibold'>female solo traveler</span> based in Berlin. Here are some of snaps from my backpacking adventures ✌🏽🗺️.
+        <p className='pb-4'>Hi, I'm <span className='font-bold'>Verónica</span>, a Berlin bases <span className='font-bold'>analog photography enthusiast</span> and 
+          <span className='font-bold'> female solo traveler</span>. On this site, you'll find snapshots from my backpacking adventures over the years ✌🏽🗺️.</p>
         </div>
       </div>
   )

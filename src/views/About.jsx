@@ -13,10 +13,18 @@ const About = ({ containerSmall, photos }) => {
   return (
     <div className={containerSmall}>
         <div className='pb-10 font-light text-xl text-zinc-100'>
-          <p className='pb-4'>I'm <span className='font-bold'>Verónica</span>, an <span className='font-bold'>analog photography enthusiast</span> and 
-          <span className='font-bold'> female solo traveler</span> based in Berlin. Here are some of snaps from my backpacking adventures ✌🏽🗺️.</p>
+          <p className='pb-4'>Hi, I'm <span className='font-bold'>Verónica</span>, a Berlin bases <span className='font-bold'>analog photography enthusiast</span> and 
+          <span className='font-bold'> female solo traveler</span>. On this site, you'll find snapshots from my backpacking adventures over the years ✌🏽🗺️.</p>
 
-          <p>When I am not travelling or planning trips around the world, I like to design and build interfaces.</p>
+          <p className='pb-4'>My passion for solo travel began with my first trip to Cuba in 2018. Since then, I've been captivated by the thrill of exploring new places 
+            and planning my journeys independently. Traveling alone allows me to completely disconnect from my daily routine, giving me the freedom 
+            to forge new connections with people<span className='italic'>-and with animals—</span>and to explore at my own pace.</p>
+
+          <p className='pb-4'>I immerse myself deeply in the cultures I visit, building relationships with locals by sharing 
+            in their daily lives and often staying in their homes. This approach to travel helps me better 
+            understand the world, connecting me to the essence of life in different corners of the globe.</p>
+
+          <p>When I'm not traveling or planning my next adventure, I enjoy designing and building user interfaces.</p>
         </div>
 
             <MapWithPins photos={photos} />
