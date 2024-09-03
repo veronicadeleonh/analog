@@ -32,8 +32,9 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 
   return (
     <div>
-        <RandomizeButton randomize={handleRandomize} />
+        
         <Hero containerSmall={containerSmall} />
+        <RandomizeButton containerBig={containerBig} randomize={handleRandomize} />
         <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
         <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} />
     </div>

@@ -38,7 +38,7 @@ console.log(uniqueCoordinates, 'unique lon');
                         latitude={pin.lat}
                         anchor="bottom"
                         >
-                        PIN
+                        <img src='/icons/location.svg'/>
                       </Marker>
                   ))}                   
             </Map>) : null }
