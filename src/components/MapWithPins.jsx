@@ -8,7 +8,8 @@ const MapWithPins = ({ photos }) => {
 
   return (
     <div>
-          <Map
+      { photos.length > 0 ? 
+          (<Map
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               initialViewState={{
                 longitude: 0,
@@ -27,16 +28,15 @@ const MapWithPins = ({ photos }) => {
                         >
                         PIN
                       </Marker>
-                  })} 
-
-                  <Marker
-                        longitude={-100}
-                        latitude={40}
-                        anchor="bottom"
-                        >
-                        PIN
-                      </Marker>  
-            </Map>
+                  })}
+                  <Marker longitude={-100} latitude={40} anchor="bottom" > PIN </Marker> 
+                  <Marker longitude={photos[0].coordinates.lon} latitude={photos[0].coordinates.lon} anchor="bottom" > PIN </Marker>
+                  {/* <Marker longitude={photos[1].coordinates.lon} latitude={photos[1].coordinates.lon} anchor="bottom" > PIN </Marker> 
+                  <Marker longitude={photos[2].coordinates.lon} latitude={photos[2].coordinates.lon} anchor="bottom" > PIN </Marker> 
+                  <Marker longitude={photos[3].coordinates.lon} latitude={photos[3].coordinates.lon} anchor="bottom" > PIN </Marker> 
+                  <Marker longitude={photos[4].coordinates.lon} latitude={photos[4].coordinates.lon} anchor="bottom" > PIN </Marker>  */}
+                      
+            </Map>) : null }
     </div>
   )
 }

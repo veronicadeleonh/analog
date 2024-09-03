@@ -15,7 +15,6 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 }
 
   const randomPhotos = randomSort([...photos])
-
   // console.log(randomPhotos, 'random')
 
   let filters = ["All", ...new Set(photos.map(photo => photo.city))]
