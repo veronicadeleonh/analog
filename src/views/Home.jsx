@@ -2,10 +2,9 @@ import { useState } from 'react'
 import Hero from '../components/Hero'
 import PhotoGrid from '../components/PhotoGrid'
 import Filters from '../components/Filters'
+import RandomizeButton from '../components/RandomizeButton'
 
 const Home = ({ containerSmall, containerBig, photos }) => {
-
-  const [selectedFilter, setSelectedFilter] = useState('All')
 
   function randomSort(arr) {
   return arr
@@ -13,6 +12,8 @@ const Home = ({ containerSmall, containerBig, photos }) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ val }) => val);
 }
+
+  const [selectedFilter, setSelectedFilter] = useState('All')
 
   const randomPhotos = randomSort([...photos])
   // console.log(randomPhotos, 'random')
@@ -23,9 +24,14 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 
   const filteredItems = selectedFilter === 'All'? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
 
+  const [randomizedFeed, setRandomizedFeed] = useState(filteredItems);
+
+  const handleRandomize = (filteredItems) => setRandomizedFeed(randomPhotos);
+
 
   return (
     <div>
+        <RandomizeButton randomize={handleRandomize} />
         <Hero containerSmall={containerSmall} />
         <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
         <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} />
