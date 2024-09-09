@@ -25,6 +25,14 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
         : setSlideNumber(slideNumber - 1)
     }
 
+    const handleKeyPress = (e) => {
+		if (e.key === 'ArrowLeft') {
+			console.log(`Do left action`);
+		} else if (e.key === 'ArrowRight') {
+			console.log(`Do right action`);
+		}
+    }
+
     // next image
     const handleNextSlide = () => {
         slideNumber + 1 === filteredItems.length
@@ -61,7 +69,8 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
           closeModal={handleCloseModal} 
           prevSlide={handlePrevSlide} 
           nextSlide={handleNextSlide}
-          randomSlide={handleRamdonSlide} 
+          randomSlide={handleRamdonSlide}
+          keyPress={handleKeyPress} 
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig}

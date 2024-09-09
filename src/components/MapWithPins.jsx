@@ -12,12 +12,6 @@ const MapWithPins = ({ photos }) => {
 });
 
 
-console.log(uniqueCoordinates, 'unique lon');
-
-
-
-  // console.log(pins, 'pin')
-
   return (
     <div>
       { uniqueCoordinates.length > 0 ? 
@@ -26,7 +20,7 @@ console.log(uniqueCoordinates, 'unique lon');
               initialViewState={{
                 longitude: 0,
                 latitude: 30,
-                zoom: 0.4
+                zoom: 0.5
               }}
               style={{width: '100%', height: '420px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"

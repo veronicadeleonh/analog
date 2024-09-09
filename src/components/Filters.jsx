@@ -5,7 +5,7 @@ export const Filters = ({ containerBig, filters, selectedFilter, filterSelection
   return (
     <div>
         <div className={containerBig}>
-          <div className='overflow-x-scroll whitespace-nowrap flex gap-2 justify-start md:justify-end items-center font-normal text-l text-zinc-500 bg-zinc-900 rounded-sm h-12 pr-2 pl-2'>
+          <div className='overflow-x-scroll md:overflow-auto whitespace-nowrap flex gap-2 md:flex-wrap md:justify-center items-center font-normal text-l text-zinc-500 bg-zinc-900 rounded-sm p-2'>
               {filters.map((filter, index) => (
                 <button
                   key={index}

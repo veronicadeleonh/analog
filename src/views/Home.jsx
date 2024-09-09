@@ -14,20 +14,16 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 }
 
   const randomPhotos = randomSort([...photos])
-  // console.log(randomPhotos, 'random')
 
   const [randomizedFeed, setRandomizedFeed] = useState(randomPhotos);
   const [selectedFilter, setSelectedFilter] = useState('All')
 
-
-  let filters = ["All", ...new Set(photos.map(photo => photo.city))]
+  let filters = ["All", ...new Set(photos.map(photo => photo.city))].sort()
 
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
   const handleRandomize = (randomPhotos) => setRandomizedFeed(randomPhotos);
 
   const filteredItems = selectedFilter === 'All'? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
-
-  
 
 
   return (
