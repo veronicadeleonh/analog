@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Overlays from './Overlays'
 
 const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
@@ -25,14 +25,6 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
         : setSlideNumber(slideNumber - 1)
     }
 
-    const handleKeyPress = (e) => {
-		if (e.key === 'ArrowLeft') {
-			console.log(`Do left action`);
-		} else if (e.key === 'ArrowRight') {
-			console.log(`Do right action`);
-		}
-    }
-
     // next image
     const handleNextSlide = () => {
         slideNumber + 1 === filteredItems.length
@@ -40,6 +32,21 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
         : setSlideNumber(slideNumber + 1)
     }
 
+    // // keyboard prev/next image
+    // const keyPress = (e) => {
+	// 	if (e.key === 'ArrowLeft') {
+	// 		handlePrevSlide();
+	// 	} else if (e.key === 'ArrowRight') {
+	// 		handleNextSlide();
+	// 	} else if (e.key === 'Escape')
+    //         handleCloseModal()
+    // }
+
+    // useEffect(() => {
+    //   document.addEventListener('keydown', keyPress, true)
+    // }, [keyPress])
+
+    // randomize slides
     const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
 
@@ -70,7 +77,6 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
           prevSlide={handlePrevSlide} 
           nextSlide={handleNextSlide}
           randomSlide={handleRamdonSlide}
-          keyPress={handleKeyPress} 
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig}

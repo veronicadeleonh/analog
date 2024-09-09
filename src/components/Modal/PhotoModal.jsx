@@ -4,7 +4,7 @@ import ModalNav from './ModalNav'
 
 const PhotoModal = props => {
 
-    const { slideNumber, closeModal, nextSlide, prevSlide, randomSlide, keyPress, containerSmall, filteredItems } = props
+    const { slideNumber, closeModal, nextSlide, prevSlide, randomSlide, containerSmall, filteredItems } = props
 
     return (
 
@@ -29,12 +29,11 @@ const PhotoModal = props => {
             <div className={containerSmall}>
                 <div className='font-light flex justify-between'>
                     <PhotoData filteredItems={filteredItems} slideNumber={slideNumber} />
-                    <ModalNav nextSlide={nextSlide} prevSlide={prevSlide} randomSlide={randomSlide} keyPress={keyPress} />
+                    <ModalNav nextSlide={nextSlide} prevSlide={prevSlide} randomSlide={randomSlide} />
                 </div>
 
             </div>
-            
-
+    
         </div>
 
   )
