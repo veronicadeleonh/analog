@@ -25,8 +25,11 @@ const About = ({ containerSmall, photos }) => {
             <MapWithPins photos={photos}/>
             <p className='text-zinc-300 text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
          </div>
+        
+        <CamerasIUse containerSmall={containerSmall} />
+        
+        <hr className='pb-6 pt-6 border-zinc-800'/>
 
-        {/* <CamerasIUse containerSmall={containerSmall} /> */}
         <p className='font-light text-l text-zinc-100'>When I'm not traveling or planning my next adventure, I enjoy designing and building user interfaces.</p>
         <LinkToUXUI />
 
