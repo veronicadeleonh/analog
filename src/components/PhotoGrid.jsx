@@ -32,19 +32,23 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
         : setSlideNumber(slideNumber + 1)
     }
 
-    // // keyboard prev/next image
-    // const keyPress = (e) => {
-	// 	if (e.key === 'ArrowLeft') {
-	// 		handlePrevSlide();
-	// 	} else if (e.key === 'ArrowRight') {
-	// 		handleNextSlide();
-	// 	} else if (e.key === 'Escape')
-    //         handleCloseModal()
-    // }
+    // keyboard prev/next image
+    const keyPress = (e) => {
+		if (e.key === 'ArrowLeft') {
+			handlePrevSlide();
+		} else if (e.key === 'ArrowRight') {
+			handleNextSlide();
+		} else if (e.key === 'Escape')
+            handleCloseModal()
+    }
 
-    // useEffect(() => {
-    //   document.addEventListener('keydown', keyPress, true)
-    // }, [keyPress])
+    useEffect(() => {
+      document.addEventListener('keydown', keyPress, true)
+      return () => {
+      document.removeEventListener('keydown', keyPress, true);
+    };
+    }, [keyPress])
+
 
     // randomize slides
     const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
