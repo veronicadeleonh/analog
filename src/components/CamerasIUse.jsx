@@ -6,16 +6,17 @@ const CamerasIUse = ({ containterSmall }) => {
     {name:'Canonet QL17 III', type:'Rangefinder', size:'35mm'},
     {name:'Mamiya 645', type:'SRL', size:'120mm'},
     {name:'Olympus Pen', type:'SRL', size:'35mm'},
-    {name:'Canon AS', type:'SRL', size:'135mm'},
+    {name:'Canon AS', type:'SRL', size:'35mm'},
   ]
 
   return (
     <div className={containterSmall}>
-        <h2 className='text-2xl font-semibold text-zinc-100 pb-6'>Cameras I use</h2>
+        <h2 className='text-2xl font-semibold text-zinc-100 pb-2'>Cameras I use</h2>
+        <p className='font-light text-l text-zinc-100 pb-6'>I mostly travel with my small format cameras. A waterproof and a halfframe camera are always fun to have.</p>
 
-        <div className='flex gap-2'>
+        <div className='grid grid-cols-2 gap-4 pb-12'>
           {cameras.map((camera) => (
-            <div className='w-[75%] font-light text-l text-zinc-100 py-2 px-3 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
+            <div className='font-light text-l text-zinc-100 py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
             <p className='font-bold'>{camera.name}</p>
             <p>{camera.type}, {camera.size}</p>
             </div>
