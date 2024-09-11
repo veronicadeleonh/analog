@@ -33,7 +33,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
     }
 
     // keyboard prev/next image
-    const keyPress = (e) => {
+    const handleKeyPress = (e) => {
 		if (e.key === 'ArrowLeft') {
 			handlePrevSlide();
 		} else if (e.key === 'ArrowRight') {
@@ -42,12 +42,13 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
             handleCloseModal()
     }
 
+
     useEffect(() => {
-      document.addEventListener('keydown', keyPress, true)
+      document.addEventListener('keydown', handleKeyPress, true)
       return () => {
-      document.removeEventListener('keydown', keyPress, true);
+      document.removeEventListener('keydown', handleKeyPress, true);
     };
-    }, [keyPress])
+    }, [handleKeyPress])
 
 
     // randomize slides
