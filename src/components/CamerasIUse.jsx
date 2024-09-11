@@ -5,8 +5,8 @@ const CamerasIUse = ({ containterSmall }) => {
   let cameras = [
     {name:'Canonet QL17 III', type:'Rangefinder', size:'35mm'},
     {name:'Mamiya 645', type:'SRL', size:'120mm'},
-    {name:'Olympus Pen', type:'SRL', size:'35mm'},
-    {name:'Canon AS', type:'SRL', size:'35mm'},
+    {name:'Olympus Pen', type:'Point-n-shoot', size:'35mm'},
+    {name:'Canon Prima AS-1', type:'Fully automatic', size:'35mm'},
   ]
 
   return (
@@ -18,7 +18,7 @@ const CamerasIUse = ({ containterSmall }) => {
           {cameras.map((camera) => (
             <div className='font-light text-l text-zinc-100 py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
             <p className='font-bold'>{camera.name}</p>
-            <p>{camera.type}, {camera.size}</p>
+            <p className='text-zinc-500'>{camera.type}, {camera.size}</p>
             </div>
         ))}
         </div>
