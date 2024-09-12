@@ -4,8 +4,8 @@ import { createClient } from "contentful";
 const useContentful = () => {
 
     const client = createClient ({
-        space: "kuqpmtu87g1u",
-        accessToken: "GGCdRHVxIa-P9DxkdQOrippAtle4_qlZXd8xsiyElnw",
+        space: process.env.REACT_APP_SPACE_ID,
+        accessToken: process.env.REACT_APP_CONTENT_DELIVERY_API_KEY,
         host: "cdn.contentful.com"
 })
 

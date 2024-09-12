@@ -28,7 +28,6 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 
   return (
     <div>
-        
         <Hero containerSmall={containerSmall} />
         <RandomizeButton containerBig={containerBig} randomize={handleRandomize} />
         <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
