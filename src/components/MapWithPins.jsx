@@ -19,11 +19,12 @@ const MapWithPins = ({ photos }) => {
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               initialViewState={{
                 longitude: 0,
-                latitude: 30,
+                latitude: 28,
                 zoom: 0.5
               }}
               style={{width: '100%', height: '420px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"
+              //mapStyle="mapbox://styles/veronicadeleonh/clzb8pw16007101pr52gp0r8a"
             >
                   {uniqueCoordinates.map((pin, key) => ( 
                       <Marker
