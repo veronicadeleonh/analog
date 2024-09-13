@@ -12,7 +12,7 @@ const CamerasIUse = ({ containterSmall }) => {
   return (
     <div className={containterSmall}>
         <h2 className='text-2xl font-semibold text-zinc-100 pb-2'>Cameras I use</h2>
-        <p className='font-light text-l text-zinc-100 pb-6'>I mostly travel with my small format cameras. A waterproof and a halfframe camera are always fun to have.</p>
+        <p className='font-light text-l text-zinc-100 pb-6'>I mostly travel with a small format camera, being the Canonet my favourite one. Depending in the destination and duration of the trip, I also like to bring a second or third camera with me: The waterproof and the halfframe cameras are the best next options!</p>
 
         <div className='grid grid-cols-2 gap-4 pb-12'>
           {cameras.map((camera) => (
