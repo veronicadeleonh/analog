@@ -5,7 +5,7 @@ import MapWithPins from "../components/MapWithPins"
 import LinkToUXUI from '../components/LinkToUXUI';
 import CamerasIUse from '../components/CamerasIUse';
 import Hero from '../components/Hero'
-import MapTitler from '../components/MapTitler';
+
 
 const About = ({ containerSmall, photos }) => {
 
