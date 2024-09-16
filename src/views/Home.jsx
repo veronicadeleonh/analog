@@ -29,7 +29,9 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   return (
     <div>
         <Hero containerSmall={containerSmall} />
+        <div className='sticky top-0 z-10'>
         <RandomizeButton containerBig={containerBig} randomize={handleRandomize} />
+        </div>
         <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
         <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} />
     </div>
