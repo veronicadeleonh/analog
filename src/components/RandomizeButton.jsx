@@ -28,7 +28,7 @@ const RandomizeButton = ({ containerBig, randomize }) => {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" 
               className='
              fill-zinc-500 
-             group-hover:fill-slate-100
+             group-hover:fill-zinc-100
               ' 
               alt="Shuffle"
               >
@@ -36,7 +36,7 @@ const RandomizeButton = ({ containerBig, randomize }) => {
               </svg>
             <div
               style={{ width: hovered ? ref.current?.offsetWidth || 0 : 0 }}
-              className='overflow-x-hidden transition-all duration-150 group-hover:text-slate-100'>
+              className='overflow-x-hidden transition-all duration-150 group-hover:text-zinc-100'>
               <span ref={ref} className='pl-2' >Shuffle</span>
             </div>
         </button>
