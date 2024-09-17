@@ -23,7 +23,7 @@ function App() {
     <>
       <Navbar containerBig={handleContainerBig} />
         <Routes>
-          <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
+          <Route exact path='/analog' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
           <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
           <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
         </Routes>
