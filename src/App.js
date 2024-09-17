@@ -6,6 +6,7 @@ import About from './views/About'
 import GetInTouch from './views/GetInTouch'
 import Home from './views/Home';
 import useContentful from './useContentful'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const handleContainerSmall = "max-w-[800px] mx-auto mt-6 px-2"
 const handleContainerBig = "max-w-[1240px] mx-auto p-2"
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
         </Routes>
       <Footer />
+      <SpeedInsights />
     </>
   );
 }
