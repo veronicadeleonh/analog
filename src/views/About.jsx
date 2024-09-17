@@ -15,7 +15,7 @@ const About = ({ containerSmall, photos }) => {
         <div className='font-light text-l text-zinc-100'>
           <p className='pb-4'>I'm <span className='font-semibold'>Verónica</span>, an <span className='font-semibold'>analog photography enthusiast</span> and <span className='font-semibold'>female solo traveler</span> based in Berlin. Since my first solo trip to Cuba in 2018, I became fascinated about exploring places on my own.</p>
 
-          <p className='pb-4'>Traveling alone allows me to completely disconnect from my daily routine, giving me the freedom 
+          <p className='pb-4'>Traveling alone allows me to disconnect from my daily routine, giving me the freedom 
             to forge new connections with people<span className='italic'>-and animals—</span>and to explore at my own pace.</p>
 
           <p className='pb-4'>I immerse myself deeply in the cultures I visit, building relationships with locals by sharing 
