@@ -24,7 +24,6 @@ const About = ({ containerSmall, photos }) => {
 
           <div className='pt-10 pb-10'>
             <MapWithPins photos={photos}/>
-            {/* <MapTitler photos={photos}/> */}
             <p className='text-zinc-300 text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
          </div>
         
