@@ -6,7 +6,7 @@ const RandomizeButton = ({ randomize }) => {
   const ref = useRef(null)
 
   return (
-    <div className="mb-1">
+    <div className="mb-2">
         <button 
             className="
               group 
