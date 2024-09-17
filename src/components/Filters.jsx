@@ -1,10 +1,12 @@
 import React from 'react'
+import RandomizeButton from './RandomizeButton'
 
-export const Filters = ({ containerBig, filters, selectedFilter, filterSelectionClick }) => {
+export const Filters = ({ containerBig, filters, selectedFilter, filterSelectionClick, randomize }) => {
 
   return (
     <div>
         <div className={containerBig}>
+          <RandomizeButton randomize={randomize} />
           <div className='overflow-x-scroll md:overflow-auto whitespace-nowrap flex gap-2 md:flex-wrap md:justify-center items-center font-normal text-l text-zinc-500 bg-zinc-900 rounded-sm p-2'>
               {filters.map((filter, index) => (
                 <button

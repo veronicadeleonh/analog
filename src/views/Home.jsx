@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Hero from '../components/Hero'
 import PhotoGrid from '../components/PhotoGrid'
 import Filters from '../components/Filters'
-import RandomizeButton from '../components/RandomizeButton'
 
 const Home = ({ containerSmall, containerBig, photos }) => {
 
@@ -30,8 +29,7 @@ const Home = ({ containerSmall, containerBig, photos }) => {
     <div>
         <Hero containerSmall={containerSmall} />
         <div className='sticky top-0 z-10 bg-zinc-950'>
-        <RandomizeButton containerBig={containerBig} randomize={handleRandomize} />
-        <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
+        <Filters containerBig={containerBig} filters={filters} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} randomize={handleRandomize} />
         </div>
         <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} />
     </div>

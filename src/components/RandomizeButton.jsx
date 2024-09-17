@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react'
 
-const RandomizeButton = ({ containerBig, randomize }) => {
+const RandomizeButton = ({ randomize }) => {
 
   const [ hovered, setHovered ] = useState(false)
   const ref = useRef(null)
 
   return (
-    <div className={containerBig}>
+    <div className="mb-1">
         <button 
             className="
               group 
