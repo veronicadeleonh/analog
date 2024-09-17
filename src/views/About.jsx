@@ -32,7 +32,7 @@ const About = ({ containerSmall, photos }) => {
         
         <hr className='pb-6 pt-6 border-zinc-800'/>
 
-        <p className='font-light text-l text-zinc-100'>When I'm not traveling or planning my next adventure, I enjoy designing and building user interfaces.</p>
+        <p className='font-light text-l text-zinc-100'>When I'm not traveling or planning a new adventure, I enjoy designing and building user interfaces.</p>
         <LinkToUXUI />
 
     </div>
