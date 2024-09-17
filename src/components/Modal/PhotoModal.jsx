@@ -49,7 +49,7 @@ const PhotoModal = props => {
 
 
             <div className='md:h-[90%] h-[78%]'>
-                <div className='h-[calc(100%-40px)] pt-6 mt-6 px-2 flex items-center justify-center'>
+                <div className='h-[calc(100%-10px)] pt-6 mt-6 px-2 flex items-center justify-center'>
                     <img 
                         className='max-w-full max-h-full pointer-events-none select-none' 
                         src={filteredItems[slideNumber].image.fields.file.url}
