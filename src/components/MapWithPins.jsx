@@ -18,7 +18,7 @@ const MapWithPins = ({ photos }) => {
           (<Map
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               initialViewState={{
-                longitude: 0,
+                longitude: -30,
                 latitude: 28,
                 zoom: 0.5
               }}
