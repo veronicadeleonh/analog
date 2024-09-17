@@ -13,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/mapbox-gl": "^3.4.0",
+    "@vercel/speed-insights": "^1.0.12",
     "contentful": "^10.15.0",
     "mapbox-gl": "^3.6.0",
     "maplibre-gl": "^4.7.0",
