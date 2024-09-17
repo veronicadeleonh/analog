@@ -12,7 +12,7 @@ const LinkToUXUI = () => {
           <Link 
             to="https://veronicadeleonh.github.io" 
             target="_blank"
-            className='group bg-zinc-50 text-stone-700 font-normal underline underline-offset-2 rounded-sm py-2 px-4 text-nowrap flex gap-2 transition-all'
+            className='group bg-zinc-50 text-zinc-900 font-normal underline underline-offset-2 rounded-sm py-2 px-4 text-nowrap flex gap-2 transition-all'
             >
             Let's go! 
             <img src='/icons/arrow-right-black.svg' className='group-hover:translate-x-[4px] duration-150' alt="Arrow Right" />
