@@ -33,7 +33,7 @@ const MapWithPins = ({ photos }) => {
                         latitude={pin.lat}
                         anchor="bottom"
                         >
-                        <img src='/icons/location.svg'/>
+                        <img src='/icons/location.svg' alt="Pin"/>
                       </Marker>
                   ))}                   
             </Map>) : null }

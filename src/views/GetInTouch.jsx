@@ -8,7 +8,7 @@ const GetInTouch = ({containerSmall}) => {
       <div className='font-light text-zinc-100'>
 
             <div className='pb-8'>
-              <img className='pb-2' src="/vdlh-coney-island.jpg" />
+              <img className='pb-2' src="/vdlh-coney-island.jpg" alt="Coney Island, NY - 2022" />
               <p className='text-right text-sm pb-4'>Coney Island, NY - 2022</p>
             </div>
 
