@@ -8,7 +8,7 @@ import Home from './views/Home';
 import useContentful from './useContentful'
 
 
-const handleContainerSmall = "max-w-[800px] mx-auto mt-6 px-2"
+const handleContainerSmall = "max-w-[720px] mx-auto mt-6 px-2"
 const handleContainerBig = "max-w-[1240px] mx-auto p-2"
 
 function App() {
