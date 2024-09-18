@@ -9,14 +9,14 @@ const LinkToUXUI = ({ containerSmall }) => {
 
         <div className='pb-6'>
           <h2 className='text-2xl font-semibold pb-2'>Other Web</h2>
-          <p>When I'm not traveling or planning a new adventure, I enjoy designing and building user interfaces.</p>
+          <p>When I'm not traveling or planning a new adventure, I enjoy designing and building interfaces.</p>
         </div>
 
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center items-center bg-zinc-900 p-4 rounded-sm'>
               <img className="sm:max-w-[26rem] rounded-sm transition-all duration-300 hover:translate-y-[-4px]" src="/portfolio-web-preview.png" />
               <div className='w-full'>
                   <div className='pb-4'>
-                  <p><span className='font-bold'>Curious to see my work? </span>
+                  <p><span className='font-semibold'>Curious to see my work? </span>
                    Check out my Product Design UX/UI portfolio</p>
                   </div>
 
