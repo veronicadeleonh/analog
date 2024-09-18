@@ -12,7 +12,7 @@ const GetInTouch = ({containerSmall}) => {
               <p className='text-right text-sm pb-4'>Coney Island, NY - 2022</p>
             </div>
 
-            <h2 className='text-3xl font-semibold pb-4'>Let's connect!</h2>
+            <h2 className='text-4xl font-semibold pb-4'>Let's connect!</h2>
 
             <p className='pb-4'>I’m always excited to meet fellow female solo travelers and exchange stories, tips, and ideas about future destinations. <span className='font-semibold italic'>Where do you want to travel next? Which trip has been your favorite? Would you visit the same place more than once?</span> Let's talk! 🎒📸.
 </p>

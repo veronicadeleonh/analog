@@ -11,7 +11,7 @@ const About = ({ containerSmall, photos }) => {
 
   return (
     <div className={containerSmall}>
-        <h2 className='text-3xl font-semibold pb-4 text-zinc-100'>About me</h2>
+        <h2 className='text-4xl font-semibold pb-4 text-zinc-100'>About me</h2>
         <div className='font-light text-l text-zinc-100'>
           <p className='pb-4'>I'm <span className='font-semibold'>Verónica</span>, an <span className='font-semibold'>analog photography enthusiast</span> and <span className='font-semibold'>female solo traveler</span> based in Berlin. Since my first solo trip to Cuba in 2018, I became fascinated about exploring places on my own.</p>
 
