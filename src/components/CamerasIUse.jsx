@@ -11,12 +11,12 @@ const CamerasIUse = ({ containterSmall }) => {
 
   return (
     <div className={containterSmall}>
-        <h2 className='text-2xl font-semibold text-zinc-100 pb-2'>Cameras I use</h2>
-        <p className='font-light text-l text-zinc-100 pb-6'>I mostly travel with a small format camera, being the Canonet my favourite one. Depending on the destination and duration of the trip, I also like to bring a second or third camera with me: The waterproof and the halfframe cameras are very fun to have.</p>
+        <h2 className='text-2xl font-semibold pb-2'>Cameras I use</h2>
+        <p className='pb-6'>I mostly travel with a small format camera, being the Canonet my favourite one. Depending on the destination and duration of the trip, I also like to bring a second or third camera with me: The waterproof and the halfframe cameras are very fun to have.</p>
 
         <div className='grid grid-cols-2 gap-2 pb-12'>
           {cameras.map((camera) => (
-            <div className='font-light text-l text-zinc-100 py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
+            <div className='py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
             <p className='font-bold'>{camera.name}</p>
             <p className='text-zinc-500'>{camera.type}, {camera.size}</p>
             </div>
