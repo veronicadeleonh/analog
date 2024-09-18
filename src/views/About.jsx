@@ -32,6 +32,7 @@ const About = ({ containerSmall, photos }) => {
         
         <hr className='pb-6 pt-6 border-zinc-800'/>
 
+        <h2 className='text-2xl font-semibold text-zinc-100 pb-2'>Other Web</h2>
         <p className='font-light text-l text-zinc-100'>When I'm not traveling or planning a new adventure, I enjoy designing and building user interfaces.</p>
         <LinkToUXUI />
 
