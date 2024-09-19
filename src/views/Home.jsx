@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Hero from '../components/Hero'
-import PhotoGrid from '../components/PhotoGrid'
-import Filters from '../components/Filters'
+import Hero from '../components/HomePage/Hero'
+import PhotoGrid from '../components/HomePage/PhotoGrid'
+import Filters from '../components/Filtering/Filters'
 
 const Home = ({ containerSmall, containerBig, photos }) => {
 

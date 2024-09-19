@@ -1,9 +1,8 @@
 import React from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css';
-import MapWithPins from "../components/MapWithPins"
-
-import LinkToUXUI from '../components/LinkToUXUI';
-import CamerasIUse from '../components/CamerasIUse';
+import MapWithPins from "../components/AboutPage/MapWithPins"
+import LinkToUXUI from '../components/AboutPage/LinkToUXUI';
+import CamerasIUse from '../components/AboutPage/CamerasIUse';
 
 
 

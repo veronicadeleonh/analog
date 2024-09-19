@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Overlays from './Overlays'
+import Overlays from '../Modal/Overlays'
 
 const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
 

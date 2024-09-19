@@ -1,6 +1,6 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
-import PhotoModal from './Modal/PhotoModal'
+import PhotoModal from './PhotoModal'
 
 const mountElement = document.getElementById("overlays")
 
