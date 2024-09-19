@@ -27,7 +27,7 @@ const PhotoModal = props => {
         
         <SlideButtonClose closeModal={closeModal} />
 
-        <div className='md:h-[90%] h-[78%] mt-5 sm:mt-0 flex items-center justify-between'>
+        <div className='lg:h-[90%] h-[80%] mt-6 sm:mt-0 flex items-center justify-between'>
             <SlideButtonPrev prevSlide={prevSlide} />
             <SlideImage filteredItems={filteredItems} slideNumber={slideNumber} />
             <SlideButtonNext nextSlide={nextSlide} />

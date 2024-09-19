@@ -4,11 +4,10 @@ const SlideButtonClose = ({ closeModal }) => {
   return (
 
             <div className='
-                absolute 
-                md:top-6 
+                absolute
                 md:right-6 
-                top-2 
-                right-2 
+                top-6 
+                right-4 
                 text-zinc-600 
                 cursor-pointer 
                 w-8 
