@@ -51,8 +51,8 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
     }, [handleKeyPress])
 
 
-    // randomize slides
-    const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
+    // // randomize slides
+    // const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
 
   return (
@@ -81,7 +81,6 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
           closeModal={handleCloseModal} 
           prevSlide={handlePrevSlide} 
           nextSlide={handleNextSlide}
-          randomSlide={handleRamdonSlide}
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig}
