@@ -13,14 +13,13 @@ const About = ({ containerSmall, photos }) => {
       <div className='font-light text-zinc-100 text-lg'>
         <h2 className='text-5xl font-semibold pb-8'>About me</h2>
 
-        <p className='pb-4'>I'm <span className='font-semibold'>Verónica</span>, an <span className='font-semibold'>analog photography enthusiast</span> and <span className='font-semibold'>female solo traveler</span> based in Berlin. Since my first solo trip to Cuba in 2018, I became fascinated about exploring places on my own.</p>
+        <p className='pb-4'>I'm <span className='font-semibold'>Verónica</span>, an <span className='font-semibold'>analog photography enthusiast</span> and 
+        <span className='font-semibold'> female solo traveler</span> based in Berlin. Since my first solo trip to Cuba in 2018, I’ve been drawn to bringing at least one analog camera with me in all my journeys.</p>
 
-        <p className='pb-4'>Traveling alone allows me to disconnect from my daily routine, giving me the freedom 
-            to forge new connections with people<span className='italic'>-and animals—</span>and to explore at my own pace.</p>
+        <p className='pb-4'>Using analog cameras helps me immerse myself better in my adventures and disconnect from the digital world, creating space for deeper connections with the places I visit and the people I meet. 
+        </p>
 
-        <p className='pb-4'>I immerse myself deeply in the cultures I visit, building relationships with locals by sharing 
-        in their daily lives and often staying in their homes. This approach to travel helps me better 
-        understand the world, connecting me to the essence of life in different corners of the globe.</p>
+        <p className='pb-4'>The fact that I can't see the photos until I come back from the trip adds an element of mystery, and brings sometimes unexpected surprises—whether it’s capturing really special moments or discovering the quirks of melted or damaged film.</p>      
 
         <div className='pt-10 pb-10'>
             <MapWithPins photos={photos}/>
