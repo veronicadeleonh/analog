@@ -22,7 +22,7 @@ const MapWithPins = ({ photos }) => {
                 latitude: 28,
                 zoom: 0.5
               }}
-              style={{width: '100%', height: '420px'}}
+              style={{width: '100%', height: '420px', borderRadius:'2px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               //mapStyle="mapbox://styles/veronicadeleonh/clzb8pw16007101pr52gp0r8a"
             >
