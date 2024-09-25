@@ -16,8 +16,8 @@ const CamerasIUse = () => {
 
         <div className='sm:grid sm:grid-cols-2 gap-2 pb-12 mx-[-16px]'>
           {cameras.map((camera) => (
-            <div className='flex gap-3 items-center py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
-              <img src={camera.image} className='rounded-sm transition-all duration-300 hover:translate-y-[-4px]' />
+            <div className='group flex gap-3 items-center py-3 px-4 rounded-sm transition-all duration-150 hover:bg-zinc-900'>
+              <img src={camera.image} className='rounded-sm transition-all duration-300 group-hover:scale-105' />
               <div>
                 <p className='font-bold'>{camera.name}</p>
                 <p className='text-zinc-500'>{camera.type}, {camera.size}</p>
