@@ -10,6 +10,12 @@ body {
   background-color: #09090b;
 }
 
+/* @media screen and (max-width: 500px) {
+body {
+ margin:8px
+}
+} */
+
 .mapboxgl-control-container, .mapboxgl-children, mapboxgl-children {
   display:none
 }

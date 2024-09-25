@@ -28,8 +28,8 @@ const About = ({ containerSmall, photos }) => {
             <p className='text-right text-sm pt-2 pb-4'>World map showing the places I've taken pictures since 2018</p>
         </div>
         
-        <CamerasIUse containerSmall={containerSmall} />
-        <LinkToUXUI containerSmall={containerSmall} />
+        <CamerasIUse />
+        <LinkToUXUI />
       </div>
     </div>
 
