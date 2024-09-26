@@ -20,7 +20,7 @@ const MapWithPins = ({ photos }) => {
               initialViewState={{
                 longitude: -30,
                 latitude: 28,
-                zoom: 0.5
+                zoom: 1.5
               }}
               style={{width: '100%', height: '420px', borderRadius:'2px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"

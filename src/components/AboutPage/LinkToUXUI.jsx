@@ -13,7 +13,7 @@ const LinkToUXUI = () => {
         </div>
 
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center items-center bg-zinc-900 p-4 rounded-sm mx-[-16px]'>
-              <img className="sm:max-w-xs rounded-sm transition-all duration-300 hover:translate-y-[-4px]" src="/portfolio-web-preview.png" />
+              <img className="sm:max-w-xs rounded-sm transition-all duration-300 hover:translate-y-[-4px]" src="/portfolio-web-preview.png" alt="Product UXUI Web" />
               <div className='w-full'>
                   <div className='pb-4'>
                   <p><span className='font-semibold'>Want to know more about my work experience? </span>
