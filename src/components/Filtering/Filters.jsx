@@ -12,7 +12,7 @@ export const Filters = ({ containerBig, filters, selectedFilter, filterSelection
                 <button
                   key={index}
                   onClick={(e) => filterSelectionClick(e)}
-                  className={`${selectedFilter === filter ? "active" : "" } inline-block rounded-sm h-8 px-2 transition-all duration-150 hover:bg-zinc-800 [&.active]:bg-zinc-50 [&.active]:text-stone-900`}
+                  className={`${selectedFilter === filter ? "active" : "" } inline-block rounded-sm h-8 px-2 transition-all duration-150 hover:bg-zinc-800 [&.active]:bg-zinc-50 [&.active]:text-zinc-900`}
                   value={filter}
                   >
                     {filter}
