@@ -3,8 +3,8 @@ import { NavLink, Link } from 'react-router-dom'
 
 const Navbar = ({ containerBig }) => {
 
-   const activeLink = 'text-zinc-100'
-   const normalLink = 'rounded-sm text-zinc-500 transition duration-150 ease-out hover:ease-in hover:text-zinc-100'
+   const activeLink = 'p-1 rounded-sm text-zinc-100  border-b-2'
+   const normalLink = 'p-1 rounded-sm text-zinc-500 transition duration-150 ease-out hover:ease-in hover:text-zinc-100'
 
   return (
 
@@ -16,7 +16,7 @@ const Navbar = ({ containerBig }) => {
         </h1>
         </Link>
         <ul className='flex text-lg'>
-           <li className='whitespace-nowrap pl-0 mr-6'>
+           <li className='whitespace-nowrap pl-0 mr-5'>
               <NavLink 
                   to="/about"
                   className={({ isActive }) =>
