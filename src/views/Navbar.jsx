@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 
 const Navbar = ({ containerBig }) => {
 
-   const activeLink = 'p-1 rounded-sm text-zinc-100  border-b-2'
+   const activeLink = 'p-1 rounded-sm text-zinc-100 underline underline-offset-2'
    const normalLink = 'p-1 rounded-sm text-zinc-500 transition duration-150 ease-out hover:ease-in hover:text-zinc-100'
 
   return (
