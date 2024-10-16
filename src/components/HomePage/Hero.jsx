@@ -18,7 +18,7 @@ const Hero = ({containerSmall}) => {
         <Link 
           to="/about" 
           target="_self"
-          className='group text-l text-zinc-500 fill-zinc-500 hover:text-zinc-100 underline underline-offset-2 text-nowrap flex items-center gap-2 transition-all w-fit'
+          className='group text-l text-zinc-500 fill-zinc-500 hover:text-zinc-100 text-nowrap flex items-center gap-2 transition-all w-fit'
           >
           Read more
           <svg width="24" height="24" viewBox="0 0 24 24" className='group-hover:translate-x-[4px] group-hover:fill-zinc-100 transition-all duration-150' xmlns="http://www.w3.org/2000/svg">
