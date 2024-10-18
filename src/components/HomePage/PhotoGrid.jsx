@@ -54,11 +54,12 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
     // // randomize slides
     // const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
+  console.log(filteredItems.length, "filteredItems")
 
   return (
     <div className={containerBig}>
       
-      { filteredItems.length > 0 ?
+      { filteredItems.length > 120 ?
         (<div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-0 gap-2'>
             {filteredItems.map((photo, index) => (
                 <div 
