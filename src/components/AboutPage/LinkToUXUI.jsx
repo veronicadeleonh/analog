@@ -20,7 +20,7 @@ const LinkToUXUI = () => {
                    Check out my Product Design UX/UI portfolio</p>
                   </div>
 
-                  <Link 
+                  <Link
                     to="https://veronicadeleonh.github.io" 
                     target="_blank"
                     className='group text-zinc-900 bg-zinc-200 hover:bg-zinc-50 font-normal underline underline-offset-2 rounded-sm py-2 px-4 text-nowrap flex gap-2 transition-all w-full sm:w-auto justify-center mt-4 sm:mt-0'
@@ -28,7 +28,7 @@ const LinkToUXUI = () => {
                     Let's go! 
                     <img src='/icons/arrow-right-black.svg' className='group-hover:translate-x-[4px] duration-150' alt="Arrow Right" />
                   </Link>
-          </div>
+          </div> 
         </div>
     </div>
   )
