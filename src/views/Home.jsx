@@ -25,7 +25,7 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   let yearFilter = ["All", ...new Set(photos.map(photo => photo.year).sort())]
 
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
-  const handleFilterBySelectionClick = (e) => setSelectedFilterBy(e.target.value)
+  const handleFilterBySelectionClick = (e) => setSelectedFilterBy(e.target.value) & setSelectedFilter("All")
   const handleRandomize = (randomPhotos) => setRandomizedFeed(randomPhotos);
 
   const filteredBy = selectedFilterBy === 'City' ? cityFilter 
