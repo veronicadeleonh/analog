@@ -6,7 +6,7 @@ const RandomizeButton = ({ randomize }) => {
   const ref = useRef(null)
 
   return (
-    <div className="mb-2">
+    <div>
         <button 
             className="
               group 
@@ -16,8 +16,8 @@ const RandomizeButton = ({ randomize }) => {
               font-normal 
               underline 
               underline-offset-2 
-              rounded-sm py-2 
-              p-2 
+              rounded-sm
+              p-3 
               text-nowrap
               overflow-hidden
               "

@@ -50,11 +50,10 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
     };
     }, [handleKeyPress])
 
-
+    
     // // randomize slides
     // const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
 
-  console.log(filteredItems.length, "filteredItems")
 
   return (
     <div className={containerBig}>
