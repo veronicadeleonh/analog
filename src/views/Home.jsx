@@ -20,10 +20,14 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   const [selectedFilterBy, setSelectedFilterBy] = useState('City')
   const [selectedFilter, setSelectedFilter] = useState('All');
 
+
+  // Filter By
   let cityFilter = ["All", ...new Set(photos.map(photo => photo.city).sort())]
   let countryFilter = ["All", ...new Set(photos.map(photo => photo.country).sort())]
   let yearFilter = ["All", ...new Set(photos.map(photo => photo.year).sort())]
 
+
+  // Handlers
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
   const handleFilterBySelectionClick = (e) => setSelectedFilterBy(e.target.value) & setSelectedFilter("All")
   const handleRandomize = (randomPhotos) => setRandomizedFeed(randomPhotos);
@@ -32,8 +36,8 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   : selectedFilterBy === 'Country' ? countryFilter 
   : yearFilter
 
-  // const filteredItems = selectedFilter === 'All' ? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
 
+  // const filteredItems = selectedFilter === 'All' ? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
   const filteredItems = selectedFilter === 'All' ? randomPhotos 
   : selectedFilterBy === 'City'? randomPhotos.filter((el) => el.city === selectedFilter)
   : selectedFilterBy === 'Country' ? randomPhotos.filter((el) => el.country === selectedFilter)
