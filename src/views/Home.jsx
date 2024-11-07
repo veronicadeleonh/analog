@@ -14,14 +14,14 @@ const Home = ({ containerSmall, containerBig, photos }) => {
     .map(({ val }) => val);
 }
 
-  const randomPhotos = randomSort([...photos])
-
+  // Randomize once on load
+  const [randomPhotos, setRandomPhotos] = useState(randomSort([...photos]));
   const [randomizedFeed, setRandomizedFeed] = useState(randomPhotos);
   const [selectedFilterBy, setSelectedFilterBy] = useState('City')
   const [selectedFilter, setSelectedFilter] = useState('All');
 
 
-  // Filter By
+  // Filters
   let cityFilter = ["All", ...new Set(photos.map(photo => photo.city).sort())]
   let countryFilter = ["All", ...new Set(photos.map(photo => photo.country).sort())]
   let yearFilter = ["All", ...new Set(photos.map(photo => photo.year).sort())]
@@ -29,15 +29,20 @@ const Home = ({ containerSmall, containerBig, photos }) => {
 
   // Handlers
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value)
+
   const handleFilterBySelectionClick = (e) => setSelectedFilterBy(e.target.value) & setSelectedFilter("All")
-  const handleRandomize = (randomPhotos) => setRandomizedFeed(randomPhotos);
+
+  const handleRandomize = () => {
+    const shuffledPhotos = randomSort([...photos]);
+    setRandomPhotos(shuffledPhotos);
+  };
 
   const filteredBy = selectedFilterBy === 'City' ? cityFilter 
   : selectedFilterBy === 'Country' ? countryFilter 
   : yearFilter
 
 
-  // const filteredItems = selectedFilter === 'All' ? randomPhotos : randomPhotos.filter((el) => el.city === selectedFilter)
+  // Determine which items to display based on filters
   const filteredItems = selectedFilter === 'All' ? randomPhotos 
   : selectedFilterBy === 'City'? randomPhotos.filter((el) => el.city === selectedFilter)
   : selectedFilterBy === 'Country' ? randomPhotos.filter((el) => el.country === selectedFilter)
