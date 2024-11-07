@@ -8,7 +8,7 @@ import SlideButtonClose from './Buttons/SlideButtonClose'
 
 const PhotoModal = props => {
 
-    const { slideNumber, closeModal, nextSlide, prevSlide, containerSmall, filteredItems } = props
+    const { slideNumber, closeModal, nextSlide, prevSlide, containerSmall, filteredItems, setSelectedFilter, setSelectedFilterBy } = props
 
     return (
 
@@ -36,7 +36,7 @@ const PhotoModal = props => {
 
             <div className={containerSmall}>
                 <div className='font-light'>
-                    <PhotoData filteredItems={filteredItems} slideNumber={slideNumber} />
+                    <PhotoData filteredItems={filteredItems} slideNumber={slideNumber} setSelectedFilter={setSelectedFilter} setSelectedFilterBy={setSelectedFilterBy} />
                 </div>
             </div>
         </div>

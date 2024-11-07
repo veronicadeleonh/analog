@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Overlays from '../Modal/Overlays'
 
-const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
+const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFilter, setSelectedFilterBy }) => {
 
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
@@ -85,6 +85,8 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems }) => {
           slideNumber={slideNumber} 
           containerSmall={containerSmall} 
           containerBig={containerBig}
+          setSelectedFilter={setSelectedFilter}
+          setSelectedFilterBy={setSelectedFilterBy}
           />
 
 
