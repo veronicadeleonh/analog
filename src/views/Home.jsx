@@ -64,7 +64,14 @@ const Home = ({ containerSmall, containerBig, photos }) => {
         </div>
         <Filters containerBig={containerBig} filteredBy={filteredBy} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
       </div>
-      <PhotoGrid containerSmall={containerSmall} containerBig={containerBig} photos={photos} filteredItems={filteredItems} setSelectedFilter={setSelectedFilter} setSelectedFilterBy={setSelectedFilterBy}/>
+      <PhotoGrid
+    containerSmall={containerSmall}
+    containerBig={containerBig}
+    photos={photos}
+    filteredItems={filteredItems}
+    setSelectedFilter={setSelectedFilter}
+    setSelectedFilterBy={setSelectedFilterBy}
+  />
     </div>
   );
 }

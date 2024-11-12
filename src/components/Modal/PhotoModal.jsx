@@ -36,7 +36,7 @@ const PhotoModal = props => {
 
             <div className={containerSmall}>
                 <div className='font-light'>
-                    <PhotoData filteredItems={filteredItems} slideNumber={slideNumber} setSelectedFilter={setSelectedFilter} setSelectedFilterBy={setSelectedFilterBy} />
+                    <PhotoData filteredItems={filteredItems} slideNumber={slideNumber} setSelectedFilter={setSelectedFilter} setSelectedFilterBy={setSelectedFilterBy} closeModal={closeModal} />
                 </div>
             </div>
         </div>
