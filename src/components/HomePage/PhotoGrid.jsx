@@ -13,7 +13,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
 
     // open modal
     const handleOpenModal = (index) => {
-        console.log('click')
+        // console.log('click')
         setSlideNumber(index)
         setOpenModal(true)
     } 
@@ -50,7 +50,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
     };
     }, [handleKeyPress])
 
-    console.log(setSelectedFilter, setSelectedFilterBy, 'photogrid');
+    
     
     // // randomize slides
     // const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))

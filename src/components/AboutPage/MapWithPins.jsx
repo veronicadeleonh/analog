@@ -1,5 +1,5 @@
-import React from 'react'
-import Map, { Marker } from 'react-map-gl';
+import React, { useState } from 'react'
+import Map, { Marker, Popup } from 'react-map-gl';
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const MapWithPins = ({ photos }) => {
@@ -10,7 +10,6 @@ const MapWithPins = ({ photos }) => {
   const uniqueCoordinates = coordinatesArray.filter((obj, index) => {
     return index === coordinatesArray.findIndex(o => obj.lon === o.lon);
 });
-
 
   return (
     <div>
@@ -33,9 +32,10 @@ const MapWithPins = ({ photos }) => {
                         latitude={pin.lat}
                         anchor="bottom"
                         >
-                        <img src='/icons/location.svg' alt="Pin"/>
+                          <img src='/icons/location.svg' alt="Pin"/>
                       </Marker>
-                  ))}                   
+                  ))}  
+
             </Map>) : null }
     </div>
   )
