@@ -12,17 +12,30 @@ const MapWithPins = ({ photos }) => {
   );
 
   const [selectedPin, setSelectedPin] = useState(null)
+  const [viewState, setViewState] = useState({
+    longitude: -30,
+    latitude: 28,
+    zoom: 1.5
+  })
+
+  const handlePinClick = (pin) => {
+    setSelectedPin(selectedPin?.coordinates.lon === pin.coordinates.lon ? null : pin);
+    if (pin) {
+      setViewState({
+        longitude: pin.coordinates.lon,
+        latitude: pin.coordinates.lat,
+        zoom: 4
+      });
+    }
+  };
 
   return (
     <div>
       { uniqueCoordinates.length > 0 ? 
           (<Map
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-              initialViewState={{
-                longitude: -30,
-                latitude: 28,
-                zoom: 1.5
-              }}
+               {...viewState} 
+              onMove={evt => setViewState(evt.viewState)} 
               style={{width: '100%', height: '420px', borderRadius:'4px'}}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               //mapStyle="mapbox://styles/veronicadeleonh/clzb8pw16007101pr52gp0r8a"
@@ -37,7 +50,7 @@ const MapWithPins = ({ photos }) => {
                           <button
                           onClick={ (e) => {
                           e.preventDefault()
-                          setSelectedPin(pin); 
+                          handlePinClick(pin);; 
                           }}
                           onClose={() => setSelectedPin(null)}
                           >
