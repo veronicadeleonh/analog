@@ -9,7 +9,7 @@ const LinkToUXUI = () => {
 
         <div className='pb-6'>
           <h2 className='text-2xl font-semibold pb-2'>Other Web</h2>
-          <p>When I'm not traveling or planning a new adventure, I enjoy designing and building interfaces. I recently built a website collecting my work experience as a Product Designer in the last years.</p>
+          <p>When I'm not traveling, I design and build interfaces. I recently created a website to showcase my work as a Product Designer, highlighting key projects and milestones.</p>
         </div>
 
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center items-center bg-zinc-900 p-4 rounded-sm mx-[-16px]'>
