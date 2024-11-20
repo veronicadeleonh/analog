@@ -29,6 +29,7 @@ const RandomizeButton = ({ randomize }) => {
               className='
              fill-zinc-500 
              group-hover:fill-zinc-100
+             transition-all duration-150
               ' 
               alt="Shuffle"
               >
