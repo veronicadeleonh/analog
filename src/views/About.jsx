@@ -21,7 +21,7 @@ const About = ({ containerSmall, photos }) => {
 
         {/* <p className='pb-4'>The fact that I can't see the photos until I come back from the trip adds an element of mystery, and brings sometimes unexpected surprises—whether it’s capturing really special moments or discovering the quirks of melted, damaged or expired film.</p> */}
         
-        <p className='pb-4'>I plan to continue exploring the world and visiting more amazing islands and coasts! </p>      
+        <p className='pb-4'>I plan to continue exploring and visiting more amazing islands and coasts! </p>      
 
         <div className='pt-10 pb-10'>
             <MapWithPins photos={photos}/>
