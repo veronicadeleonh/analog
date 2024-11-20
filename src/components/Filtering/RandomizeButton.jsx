@@ -17,7 +17,7 @@ const RandomizeButton = ({ randomize }) => {
               underline 
               underline-offset-2 
               rounded-sm
-              p-3 
+              p-2 
               text-nowrap
               overflow-hidden
               "
