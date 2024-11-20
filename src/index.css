@@ -22,6 +22,6 @@ mapboxgl-children {
 }
 
 .mapboxgl-popup-content {
-  padding: 8px 8px;
+  padding: 8px !important;
   font-family: "IBM Plex Sans", serif;
 }
