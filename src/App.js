@@ -1,15 +1,15 @@
 import React, { useState, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './views/Navbar';
-import Footer from './views/Footer'
-import About from './views/About'
-import GetInTouch from './views/GetInTouch'
-import Home from './views/Home';
-import LoadSpinner from './components/LoadSpinner';
+import Navbar from './layout/Navbar';
+import Footer from './layout/Footer'
+import About from './pages/About'
+import GetInTouch from './pages/GetInTouch'
+import Home from './pages/Home';
+import LoadSpinner from './shared/LoadSpinner';
 import useContentful from './useContentful'
 
 
-const handleContainerSmall = "max-w-[620px] mx-auto mt-6 sm:px-2 px-3"
+const handleContainerSmall = "max-w-[720px] mx-auto mt-6 sm:px-2 px-3"
 const handleContainerBig = "max-w-[1240px] mx-auto sm:p-2 p-3"
 
 function App() {
