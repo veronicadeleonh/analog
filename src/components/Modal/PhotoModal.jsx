@@ -1,6 +1,5 @@
 import React from 'react'
 import PhotoData from './PhotoData'
-// import ModalNav from './ModalNav'
 import SlideButtonPrev from './Buttons/SlideButtonPrev'
 import SlideButtonNext from './Buttons/SlideButtonNext'
 import SlideImage from './SlideImage'
