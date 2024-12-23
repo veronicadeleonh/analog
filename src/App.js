@@ -6,7 +6,8 @@ import About from './pages/About'
 import GetInTouch from './pages/GetInTouch'
 import Home from './pages/Home';
 import LoadSpinner from './shared/LoadSpinner';
-import useContentful from './useContentful'
+import useContentful from './useContentful';
+import { FilterProvider } from './context/FilterContext';
 
 
 const handleContainerSmall = "max-w-[720px] mx-auto mt-6 sm:px-2 px-3"
@@ -31,11 +32,13 @@ function App() {
       {loading ? (
         <LoadSpinner />
       ) : (
-        <Routes>
-          <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
-          <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
-          <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
-        </Routes>
+        <FilterProvider>
+          <Routes>
+              <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
+              <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
+              <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
+          </Routes>
+        </FilterProvider>
       )}
       <Footer />
     </>
