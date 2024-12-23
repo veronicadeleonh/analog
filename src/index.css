@@ -24,12 +24,12 @@ mapboxgl-children {
 .mapboxgl-popup-content {
   padding: 14px 12px !important;
   font-family: "IBM Plex Sans", serif;
-  background: #09090b !important;
+  /* background: #09090b !important; */
 }
 
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+/* .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   border-top-color: #09090b !important;
-}
+} */
 
 .mapboxgl-popup-close-button {
   right: 3px;
