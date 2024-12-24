@@ -79,14 +79,14 @@ const MapWithPins = ({ photos }) => {
             >
               <span
                 onClick={() => handleFilterSelection(selectedPin.city, 'City')}
-                className="p-1 bg-teal-200/30 text-teal-300 text-sm uppercase rounded-sm cursor-pointer transition-all duration-150 hover:bg-teal-200/40"
+                className="p-1 bg-teal-200/40 text-teal-500 text-sm uppercase rounded-sm cursor-pointer transition-all duration-150 hover:bg-teal-200/60"
               >
                 {selectedPin.city}
               </span>
               ,&nbsp;
               <span
                 onClick={() => handleFilterSelection(selectedPin.country, 'Country')}
-                className="p-1 bg-lime-200/30 text-lime-300 text-sm uppercase rounded-sm cursor-pointer transition-all duration-150 hover:bg-lime-200/40"
+                className="p-1 bg-lime-200/40 text-lime-500 text-sm uppercase rounded-sm cursor-pointer transition-all duration-150 hover:bg-lime-200/60"
               >
                 {selectedPin.country}
               </span>

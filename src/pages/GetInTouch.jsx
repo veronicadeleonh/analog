@@ -17,9 +17,9 @@ const GetInTouch = ({containerSmall}) => {
             <p>I’m always excited to meet fellow female solo travelers and exchange stories, tips, and ideas about future destinations.</p>
             
             <div className='py-4'>
-            <p className='font-medium italic'>Where do you want to travel next?</p>
-            <p className='font-medium italic'>Which trip has been your favorite?</p>
-            <p className='font-medium italic'>Would you visit the same place more than once?</p> 
+            <p className='font-medium italic p-2 rounded-sm w-fit transition-all duration-300 hover:bg-zinc-900 hover:translate-x-[4px]'>– Where do you want to travel next?</p>
+            <p className='font-medium italic p-2 rounded-sm w-fit transition-all duration-300 hover:bg-zinc-900 hover:translate-x-[4px]'>– Which trip has been your favorite?</p>
+            <p className='font-medium italic p-2 rounded-sm w-fit transition-all duration-300 hover:bg-zinc-900 hover:translate-x-[4px]'>– Would you visit the same place more than once?</p> 
             </div>
             <p>Let's talk! 🎒📸. I’d love to hear about your trips!</p>
             
