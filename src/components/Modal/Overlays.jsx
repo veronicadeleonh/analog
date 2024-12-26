@@ -11,7 +11,8 @@ const { openModal, closeModal, prevSlide, nextSlide, slideNumber, containerSmall
   return (
     createPortal(
       <>{openModal && 
-          <PhotoModal 
+          <PhotoModal
+              openModal={openModal} 
               filteredItems={filteredItems} 
               closeModal={closeModal} 
               prevSlide={prevSlide} 

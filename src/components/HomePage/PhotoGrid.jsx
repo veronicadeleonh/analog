@@ -51,14 +51,9 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
     }, [handleKeyPress])
 
     
-    
-    // // randomize slides
-    // const handleRamdonSlide = () => setSlideNumber(Math.floor(Math.random() * filteredItems.length))
-
 
   return (
     <div className={containerBig}>
-      
       
         <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-0 gap-2'>
             {filteredItems.map((photo, index) => (

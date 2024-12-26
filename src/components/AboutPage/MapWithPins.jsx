@@ -83,7 +83,7 @@ const MapWithPins = ({ photos }) => {
               >
                 {selectedPin.city}
               </span>
-              ,&nbsp;
+              <span className='text-zinc-600'>, </span>
               <span
                 onClick={() => handleFilterSelection(selectedPin.country, 'Country')}
                 className="p-1 bg-lime-200/40 text-lime-500 text-sm uppercase rounded-sm cursor-pointer transition-all duration-150 hover:bg-lime-200/60"
