@@ -24,8 +24,8 @@ const GetInTouch = ({containerSmall}) => {
             <p>Let's talk! 🎒📸. I’d love to hear about your trips!</p>
             
             <div className='py-4'>
-            <a className='mt-4 w-fit p-2 rounded-sm font-medium transition-all duration-300 hover:bg-zinc-200 hover:text-zinc-900 active:bg-zinc-100' href="mailto:hello@veronicadeleon.de">
-              hello@veronicadeleon.de
+            <a className='mt-4 w-fit p-2 rounded-sm font-medium transition-all duration-300 hover:bg-zinc-200 hover:text-zinc-900 active:bg-zinc-100' href="mailto:hi@veronicadeleonh.de">
+              hi@veronicadeleon.de
             </a>
             </div>
       </div>
