@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './layout/Navbar';
-import Footer from './layout/Footer'
-import About from './pages/About'
+import Footer from './layout/Footer';
+import About from './pages/About';
+import PhotoGrid from './components/HomePage/PhotoGrid';
 import GetInTouch from './pages/GetInTouch'
 import Home from './pages/Home';
 import LoadSpinner from './shared/LoadSpinner';
@@ -37,6 +38,7 @@ function App() {
               <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
               <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
               <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
+              <Route path="/photo/:photoId" element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
           </Routes>
         </FilterProvider>
       )}
