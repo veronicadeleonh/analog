@@ -112,23 +112,43 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
 
     // Check URL on component mount and route changes
     useEffect(() => {
+        console.log('URL Effect triggered:', {
+            pathname: location.pathname,
+            filteredItemsLength: filteredItems?.length,
+            filteredItems: filteredItems
+        })
+
         // Don't process if filteredItems is empty or still loading
         if (!filteredItems || filteredItems.length === 0) {
+            console.log('No filtered items yet, waiting...')
             return
         }
 
         const pathMatch = location.pathname.match(/^\/photo\/(.+)$/)
         if (pathMatch) {
             const slug = pathMatch[1]
+            console.log('Looking for photo with slug:', slug)
+            
             const photoIndex = findPhotoBySlug(slug)
+            console.log('Photo index found:', photoIndex)
             
             if (photoIndex !== -1) {
+                console.log('Opening modal for photo:', filteredItems[photoIndex])
                 setSlideNumber(photoIndex)
                 setOpenModal(true)
             } else {
                 console.warn(`Photo not found for slug: ${slug}`)
-                // Photo not found, redirect to gallery
-                navigate('/', { replace: true })
+                console.log('Available photos:', filteredItems.map(item => ({
+                    caption: item.caption,
+                    slug: createSlug(item.caption || item.title || ''),
+                    sysId: item?.image?.sys?.id
+                })))
+                // Don't redirect immediately - maybe data is still loading
+                setTimeout(() => {
+                    if (findPhotoBySlug(slug) === -1) {
+                        navigate('/', { replace: true })
+                    }
+                }, 2000)
             }
         } else {
             setOpenModal(false)
@@ -146,8 +166,25 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
 
     return (
         <div className={containerBig}>
+            {/* Debug info - remove after fixing */}
+            {process.env.NODE_ENV === 'development' && (
+                <div style={{ position: 'fixed', top: 0, left: 0, background: 'black', color: 'white', padding: '10px', zIndex: 9999, fontSize: '12px' }}>
+                    <div>URL: {location.pathname}</div>
+                    <div>Filtered Items: {filteredItems?.length || 0}</div>
+                    <div>Modal Open: {openModal.toString()}</div>
+                    <div>Slide Number: {slideNumber}</div>
+                </div>
+            )}
+
+            {/* Show loading if we're on a photo URL but data isn't ready */}
+            {location.pathname.startsWith('/photo/') && (!filteredItems || filteredItems.length === 0) && (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
+                    <div>Loading photo...</div>
+                </div>
+            )}
+
             <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-0 gap-2'>
-                {filteredItems.map((photo, index) => (
+                {filteredItems && filteredItems.map((photo, index) => (
                     <div 
                         key={photo.image.sys.id} 
                         className='mb-2 break-inside-avoid transition-all duration-300 hover:translate-y-[-4px]'
