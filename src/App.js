@@ -9,16 +9,14 @@ import LoadSpinner from './shared/LoadSpinner';
 import useContentful from './useContentful';
 import { FilterProvider } from './context/FilterContext';
 
-
 const handleContainerSmall = "max-w-[720px] mx-auto mt-6 sm:px-2 px-3"
 const handleContainerBig = "max-w-[1240px] mx-auto sm:p-2 p-3"
 
 function App() {
-
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(true)
   const { getPhotos } = useContentful()
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
     getPhotos().then((response) => {
