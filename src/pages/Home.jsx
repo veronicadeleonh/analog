@@ -8,19 +8,18 @@ import FilterBy from '../components/Filtering/FilterBy';
 import RandomizeButton from '../components/Filtering/RandomizeButton';
 
 const Home = ({ containerSmall, containerBig, photos, loading }) => {
-
   const location = useLocation()
   const { selectedFilter, selectedFilterBy, setSelectedFilter, setSelectedFilterBy, randomizedFeed, setRandomizedFeed } = useFilter();
 
   useEffect(() => {
-  if (location.state) {
-    const { selectedFilter, selectedFilterBy } = location.state;
-    if (selectedFilter !== selectedFilter || selectedFilterBy !== selectedFilterBy) {
-      setSelectedFilter(selectedFilter);
-      setSelectedFilterBy(selectedFilterBy);
+    if (location.state) {
+      const { selectedFilter, selectedFilterBy } = location.state;
+      if (selectedFilter !== selectedFilter || selectedFilterBy !== selectedFilterBy) {
+        setSelectedFilter(selectedFilter);
+        setSelectedFilterBy(selectedFilterBy);
+      }
     }
-  }
-}, [location.state, setSelectedFilter, setSelectedFilterBy]);
+  }, [location.state, setSelectedFilter, setSelectedFilterBy]);
 
   function randomSort(arr) {
     return arr
@@ -29,7 +28,7 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
       .map(({ val }) => val);
   }
 
-  // Filters
+  // Only create filters if photos are loaded
   const cityFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.city).sort())] : ["All"];
   const countryFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.country).sort())] : ["All"];
   const yearFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.year).sort())] : ["All"];
@@ -44,7 +43,7 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
 
   const handleRandomize = () => {
     const shuffledPhotos = randomSort([...photos]);
-    setRandomizedFeed(shuffledPhotos); // Update randomized feed
+    setRandomizedFeed(shuffledPhotos);
   };
 
   const filteredBy = selectedFilterBy === 'City' ? cityFilter
@@ -56,11 +55,10 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
   console.log('Selected Filter By:', selectedFilterBy);
   console.log('Randomized Feed:', randomizedFeed);
 
-
   const filteredItems = selectedFilter === 'All' ? randomizedFeed
-  : selectedFilterBy === 'City' ? randomizedFeed.filter((el) => el.city === selectedFilter)
-  : selectedFilterBy === 'Country' ? randomizedFeed.filter((el) => el.country === selectedFilter)
-  : randomizedFeed.filter((el) => el.year.toString() === selectedFilter);
+    : selectedFilterBy === 'City' ? randomizedFeed.filter((el) => el.city === selectedFilter)
+    : selectedFilterBy === 'Country' ? randomizedFeed.filter((el) => el.country === selectedFilter)
+    : randomizedFeed.filter((el) => el.year.toString() === selectedFilter);
 
   console.log('Randomized Feed:', randomizedFeed);
 
@@ -72,7 +70,6 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
 
   // Check if we're on a photo route
   const isPhotoRoute = location.pathname.startsWith('/photo/')
-
 
   return (
     <div>
