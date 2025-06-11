@@ -7,7 +7,7 @@ import Filters from '../components/Filtering/Filters';
 import FilterBy from '../components/Filtering/FilterBy';
 import RandomizeButton from '../components/Filtering/RandomizeButton';
 
-const Home = ({ containerSmall, containerBig, photos }) => {
+const Home = ({ containerSmall, containerBig, photos, loading }) => {
 
   const location = useLocation()
   const { selectedFilter, selectedFilterBy, setSelectedFilter, setSelectedFilterBy, randomizedFeed, setRandomizedFeed } = useFilter();
@@ -30,9 +30,9 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   }
 
   // Filters
-  const cityFilter = ["All", ...new Set(photos.map(photo => photo.city).sort())];
-  const countryFilter = ["All", ...new Set(photos.map(photo => photo.country).sort())];
-  const yearFilter = ["All", ...new Set(photos.map(photo => photo.year).sort())];
+  const cityFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.city).sort())] : ["All"];
+  const countryFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.country).sort())] : ["All"];
+  const yearFilter = photos.length > 0 ? ["All", ...new Set(photos.map(photo => photo.year).sort())] : ["All"];
 
   // Handlers
   const handleFilterSelectionClick = (e) => setSelectedFilter(e.target.value);
@@ -65,30 +65,43 @@ const Home = ({ containerSmall, containerBig, photos }) => {
   console.log('Randomized Feed:', randomizedFeed);
 
   useEffect(() => {
-    setRandomizedFeed(randomSort([...photos])); 
+    if (photos.length > 0) {
+      setRandomizedFeed(randomSort([...photos])); 
+    }
   }, [photos]);
+
+  // Check if we're on a photo route
+  const isPhotoRoute = location.pathname.startsWith('/photo/')
 
 
   return (
     <div>
-      <Hero containerSmall={containerSmall} />
-      <div className='sticky top-0 z-10 bg-zinc-950'>
-        <div className={containerBig}>
-          <div className='flex justify-between items-end'>
-            <RandomizeButton randomize={handleRandomize} />
-            <FilterBy filterBySelectionclick={handleFilterBySelectionClick} selectedFilterBy={selectedFilterBy} />
+      {/* Only show Hero and filters on home page, not on photo routes */}
+      {!isPhotoRoute && (
+        <>
+          <Hero containerSmall={containerSmall} />
+          <div className='sticky top-0 z-10 bg-zinc-950'>
+            <div className={containerBig}>
+              <div className='flex justify-between items-end'>
+                <RandomizeButton randomize={handleRandomize} />
+                <FilterBy filterBySelectionclick={handleFilterBySelectionClick} selectedFilterBy={selectedFilterBy} />
+              </div>
+            </div>
+            <Filters containerBig={containerBig} filteredBy={filteredBy} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
           </div>
-        </div>
-        <Filters containerBig={containerBig} filteredBy={filteredBy} filterSelectionClick={handleFilterSelectionClick} selectedFilter={selectedFilter} photos={photos} />
-      </div>
+        </>
+      )}
+      
       <PhotoGrid
-    containerSmall={containerSmall}
-    containerBig={containerBig}
-    photos={photos}
-    filteredItems={filteredItems}
-    setSelectedFilter={setSelectedFilter}
-    setSelectedFilterBy={setSelectedFilterBy}
-  />
+        containerSmall={containerSmall}
+        containerBig={containerBig}
+        photos={photos}
+        filteredItems={filteredItems}
+        setSelectedFilter={setSelectedFilter}
+        setSelectedFilterBy={setSelectedFilterBy}
+        loading={loading}
+        isPhotoRoute={isPhotoRoute}
+      />
     </div>
   );
 }

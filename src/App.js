@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
 import About from './pages/About';
-import PhotoGrid from './components/HomePage/PhotoGrid';
 import GetInTouch from './pages/GetInTouch'
 import Home from './pages/Home';
 import LoadSpinner from './shared/LoadSpinner';
@@ -19,6 +18,7 @@ function App() {
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(true)
   const { getPhotos } = useContentful()
+  const location = useLocation();
 
   useEffect(() => {
     getPhotos().then((response) => {
@@ -27,18 +27,22 @@ function App() {
     });
   }, []);
 
+  // Check if we're on a photo route - if so, show the content even while loading
+  const isPhotoRoute = location.pathname.startsWith('/photo/')
+  const shouldShowContent = !loading || isPhotoRoute
+
   return (
     <>
       <Navbar containerBig={handleContainerBig} />
-      {loading ? (
+      {!shouldShowContent ? (
         <LoadSpinner />
       ) : (
         <FilterProvider>
           <Routes>
-              <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
+              <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} loading={loading} />} />
               <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
               <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
-              <Route path="/photo/:photoId" element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} />} />
+              <Route path="/photo/:photoId" element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} loading={loading} />} />
           </Routes>
         </FilterProvider>
       )}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Overlays from '../Modal/Overlays'
 
-const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFilter, setSelectedFilterBy }) => {
+const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFilter, setSelectedFilterBy, loading, isPhotoRoute }) => {
     const navigate = useNavigate()
     const location = useLocation()
     
@@ -90,7 +90,8 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
         console.log('URL Effect triggered:', {
             pathname: location.pathname,
             filteredItemsLength: filteredItems?.length,
-            isLoading: isLoading
+            isLoading: isLoading,
+            loading: loading
         })
 
         const pathMatch = location.pathname.match(/^\/photo\/(.+)$/)
@@ -99,9 +100,9 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
             const imageId = pathMatch[1]
             console.log('Looking for photo with ID:', imageId)
             
-            // If filteredItems is empty, show loading and wait
-            if (!filteredItems || filteredItems.length === 0) {
-                console.log('No filtered items yet, showing loading...')
+            // If still loading data, show loading state
+            if (loading || !filteredItems || filteredItems.length === 0) {
+                console.log('Data still loading or no filtered items yet...')
                 setIsLoading(true)
                 return
             }
@@ -124,7 +125,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
             setIsLoading(false)
             setOpenModal(false)
         }
-    }, [location.pathname, filteredItems, navigate, isLoading])
+    }, [location.pathname, filteredItems, navigate, loading])
 
     useEffect(() => {
         if (openModal) {
@@ -136,7 +137,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
     }, [openModal, slideNumber, filteredItems])
 
     // Show loading state when accessing direct photo URL and data isn't ready
-    if (isLoading || (location.pathname.startsWith('/photo/') && (!filteredItems || filteredItems.length === 0))) {
+    if (isLoading || (isPhotoRoute && (loading || !filteredItems || filteredItems.length === 0))) {
         return (
             <div className={containerBig}>
                 <div style={{ 
@@ -167,7 +168,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
             )}
 
             <div className='columns-1 sm:columns-2 lg:columns-3 2xl:columns-3 py-0 gap-2'>
-                {filteredItems && filteredItems.map((photo, index) => (
+                {!isPhotoRoute && filteredItems && filteredItems.map((photo, index) => (
                     <div 
                         key={photo.image.sys.id} 
                         className='mb-2 break-inside-avoid transition-all duration-300 hover:translate-y-[-4px]'
