@@ -8,36 +8,12 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
     
     const [openModal, setOpenModal] = useState(false)
     const [slideNumber, setSlideNumber] = useState(0)
+    const [isLoading, setIsLoading] = useState(false)
 
-    // Function to create URL-friendly slug from title
-    const createSlug = (title) => {
-        if (!title) return 'untitled'
-        
-        return title
-            .toLowerCase()
-            .trim()
-            // Remove emojis and special characters
-            .replace(/[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
-            // Replace spaces and special characters with hyphens
-            .replace(/[^a-z0-9]+/g, '-')
-            // Remove leading/trailing hyphens
-            .replace(/^-+|-+$/g, '')
-            // Handle empty string after cleaning
-            || 'untitled'
-    }
-
-    // Function to find photo by slug
-    const findPhotoBySlug = (slug) => {
-        return filteredItems.findIndex(item => {
-            // Try to match by slug first
-            const itemSlug = createSlug(item.caption || item.title || '')
-            if (itemSlug === slug) {
-                return true
-            }
-            
-            // Fallback: if slug matches the sys.id (for backward compatibility)
-            return item?.image?.sys?.id === slug
-        })
+    // Function to find photo by image ID
+    const findPhotoById = (imageId) => {
+        if (!filteredItems || !imageId) return -1
+        return filteredItems.findIndex(item => item?.image?.sys?.id === imageId)
     }
 
     // close modal
@@ -46,19 +22,18 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
         navigate('/')
     }
 
-    // open modal - now uses photo title slug for URL
+    // open modal - now uses image ID for URL
     const handleOpenModal = (index) => {
         const photo = filteredItems[index]
-        if (!photo) {
-            console.error('Photo not found:', photo)
+        if (!photo?.image?.sys?.id) {
+            console.error('Photo or image ID not found:', photo)
             return
         }
         
-        // Create slug from title/caption
-        const slug = createSlug(photo.caption || photo.title || '')
+        const imageId = photo.image.sys.id
         setSlideNumber(index)
         setOpenModal(true)
-        navigate(`/photo/${slug}`)
+        navigate(`/photo/${imageId}`)
     }
 
     // previous image - updates URL
@@ -70,14 +45,14 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
             : slideNumber - 1
         
         const newPhoto = filteredItems[newIndex]
-        if (!newPhoto) {
+        if (!newPhoto?.image?.sys?.id) {
             console.error('Previous photo not found:', newPhoto)
             return
         }
         
         setSlideNumber(newIndex)
-        const slug = createSlug(newPhoto.caption || newPhoto.title || '')
-        navigate(`/photo/${slug}`, { replace: true })
+        const imageId = newPhoto.image.sys.id
+        navigate(`/photo/${imageId}`, { replace: true })
     }
 
     // next image - updates URL
@@ -89,14 +64,14 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
             : slideNumber + 1
         
         const newPhoto = filteredItems[newIndex]
-        if (!newPhoto) {
+        if (!newPhoto?.image?.sys?.id) {
             console.error('Next photo not found:', newPhoto)
             return
         }
         
         setSlideNumber(newIndex)
-        const slug = createSlug(newPhoto.caption || newPhoto.title || '')
-        navigate(`/photo/${slug}`, { replace: true })
+        const imageId = newPhoto.image.sys.id
+        navigate(`/photo/${imageId}`, { replace: true })
     }
 
     // keyboard prev/next image
@@ -115,21 +90,24 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
         console.log('URL Effect triggered:', {
             pathname: location.pathname,
             filteredItemsLength: filteredItems?.length,
-            filteredItems: filteredItems
+            isLoading: isLoading
         })
 
-        // Don't process if filteredItems is empty or still loading
-        if (!filteredItems || filteredItems.length === 0) {
-            console.log('No filtered items yet, waiting...')
-            return
-        }
-
         const pathMatch = location.pathname.match(/^\/photo\/(.+)$/)
+        
         if (pathMatch) {
-            const slug = pathMatch[1]
-            console.log('Looking for photo with slug:', slug)
+            const imageId = pathMatch[1]
+            console.log('Looking for photo with ID:', imageId)
             
-            const photoIndex = findPhotoBySlug(slug)
+            // If filteredItems is empty, show loading and wait
+            if (!filteredItems || filteredItems.length === 0) {
+                console.log('No filtered items yet, showing loading...')
+                setIsLoading(true)
+                return
+            }
+            
+            setIsLoading(false)
+            const photoIndex = findPhotoById(imageId)
             console.log('Photo index found:', photoIndex)
             
             if (photoIndex !== -1) {
@@ -137,23 +115,16 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
                 setSlideNumber(photoIndex)
                 setOpenModal(true)
             } else {
-                console.warn(`Photo not found for slug: ${slug}`)
-                console.log('Available photos:', filteredItems.map(item => ({
-                    caption: item.caption,
-                    slug: createSlug(item.caption || item.title || ''),
-                    sysId: item?.image?.sys?.id
-                })))
-                // Don't redirect immediately - maybe data is still loading
-                setTimeout(() => {
-                    if (findPhotoBySlug(slug) === -1) {
-                        navigate('/', { replace: true })
-                    }
-                }, 2000)
+                console.warn(`Photo not found for ID: ${imageId}`)
+                console.log('Available photo IDs:', filteredItems.map(item => item?.image?.sys?.id))
+                // Redirect to home if photo not found
+                navigate('/', { replace: true })
             }
         } else {
+            setIsLoading(false)
             setOpenModal(false)
         }
-    }, [location.pathname, filteredItems, navigate])
+    }, [location.pathname, filteredItems, navigate, isLoading])
 
     useEffect(() => {
         if (openModal) {
@@ -164,6 +135,24 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
         }
     }, [openModal, slideNumber, filteredItems])
 
+    // Show loading state when accessing direct photo URL and data isn't ready
+    if (isLoading || (location.pathname.startsWith('/photo/') && (!filteredItems || filteredItems.length === 0))) {
+        return (
+            <div className={containerBig}>
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
+                    height: '100vh',
+                    fontSize: '18px',
+                    color: '#666'
+                }}>
+                    <div>Loading photo...</div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className={containerBig}>
             {/* Debug info - remove after fixing */}
@@ -173,13 +162,7 @@ const PhotoGrid = ({ containerSmall, containerBig, filteredItems, setSelectedFil
                     <div>Filtered Items: {filteredItems?.length || 0}</div>
                     <div>Modal Open: {openModal.toString()}</div>
                     <div>Slide Number: {slideNumber}</div>
-                </div>
-            )}
-
-            {/* Show loading if we're on a photo URL but data isn't ready */}
-            {location.pathname.startsWith('/photo/') && (!filteredItems || filteredItems.length === 0) && (
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
-                    <div>Loading photo...</div>
+                    <div>Loading: {isLoading.toString()}</div>
                 </div>
             )}
 
