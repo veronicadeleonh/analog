@@ -37,9 +37,9 @@ function App() {
       ) : (
         <FilterProvider>
           <Routes>
-              <Route exact path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} loading={loading} />} />
-              <Route exact path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
-              <Route exact path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
+              <Route path='/' element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} loading={loading} />} />
+              <Route path='/about' element={<About containerSmall={handleContainerSmall} photos={photos} />} />
+              <Route path='/contact' element={<GetInTouch containerSmall={handleContainerSmall} />} />
               <Route path="/photo/:photoId" element={<Home containerSmall={handleContainerSmall} containerBig={handleContainerBig} photos={photos} loading={loading} />} />
           </Routes>
         </FilterProvider>
