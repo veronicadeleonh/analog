@@ -1,12 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/photo/:photoId",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
