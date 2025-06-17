@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom'; // Add useParams
 import { useFilter } from '../context/FilterContext';
 import Hero from '../components/HomePage/Hero';
 import PhotoGrid from '../components/HomePage/PhotoGrid';
@@ -8,7 +8,8 @@ import FilterBy from '../components/Filtering/FilterBy';
 import RandomizeButton from '../components/Filtering/RandomizeButton';
 
 const Home = ({ containerSmall, containerBig, photos, loading }) => {
-  const location = useLocation()
+  const location = useLocation();
+  const { photoId } = useParams(); // Add this line
   const { selectedFilter, selectedFilterBy, setSelectedFilter, setSelectedFilterBy, randomizedFeed, setRandomizedFeed } = useFilter();
 
   useEffect(() => {
@@ -69,7 +70,20 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
   }, [photos]);
 
   // Check if we're on a photo route
-  const isPhotoRoute = location.pathname.startsWith('/photo/')
+  const isPhotoRoute = location.pathname.startsWith('/photo/');
+
+  // Add debugging AFTER filteredItems is defined
+  useEffect(() => {
+    if (photoId) {
+      console.log('=== PHOTO ROUTE DEBUG ===');
+      console.log('Photo ID from URL:', photoId);
+      console.log('All photos length:', photos.length);
+      console.log('Randomized feed length:', randomizedFeed.length);
+      console.log('Filtered items length:', filteredItems.length);
+      console.log('Is photo route:', isPhotoRoute);
+      console.log('Loading:', loading);
+    }
+  }, [photoId, photos, filteredItems, randomizedFeed, isPhotoRoute, loading]);
 
   return (
     <div>
@@ -93,11 +107,12 @@ const Home = ({ containerSmall, containerBig, photos, loading }) => {
         containerSmall={containerSmall}
         containerBig={containerBig}
         photos={photos}
-        filteredItems={filteredItems}
+        filteredItems={isPhotoRoute ? photos : filteredItems} // Use all photos on photo routes
         setSelectedFilter={setSelectedFilter}
         setSelectedFilterBy={setSelectedFilterBy}
         loading={loading}
         isPhotoRoute={isPhotoRoute}
+        photoId={photoId} // Pass photoId to PhotoGrid
       />
     </div>
   );
